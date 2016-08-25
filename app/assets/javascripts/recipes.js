@@ -1,5 +1,6 @@
 $(document).ready(function(){
   showRecipeTabs();
+  upVoteListener();
 })
 
 function showRecipeTabs() {
@@ -17,6 +18,28 @@ function showRecipeTabs() {
   })
 }
 
+function upVoteListener() {
+  $('.upvote-button').on('click', function (event) {
+    event.preventDefault();
+
+    var url = $(this).parent().attr('action');
+    var that = this
+
+    var request = $.ajax({
+      url: url,
+      type: "POST"
+    })
+
+    request.done(function (response_data) {
+      $(that).parents('article').find('.points').html(response_data)
+    })
+
+    request.fail(function (response_data) {
+      alert("Oops, there was a problem!");
+      console.log(response_data);
+    })
+  })
+}
 
 
 
