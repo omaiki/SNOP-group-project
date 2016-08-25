@@ -3011,4 +3011,135 @@ Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-25 11:51:01 -0700
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 11:51:01 -0700
+<<<<<<< HEAD
+
+
+Started GET "/recipes/new" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+Processing by RecipesController#new as HTML
+  Rendered recipes/_form.html.erb (3.2ms)
+  Rendered recipes/new.html.erb within layouts/application (5.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 111ms (Views: 109.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-25 12:02:35 -0700
+
+
+Started GET "/recipes" for 127.0.0.1 at 2016-08-25 12:02:47 -0700
+Processing by RecipesController#index as HTML
+  Rendered recipes/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+Completed 200 OK in 102ms (Views: 101.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 140ms (Views: 139.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-25 12:05:42 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-25 12:09:58 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+Completed 200 OK in 148ms (Views: 146.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
+=======
 >>>>>>> f7ec4f89b88f590af96beef99810199b37b038e5
+>>>>>>> a315d1013b98d8b4b2f5b3109c1aea5931b71978
