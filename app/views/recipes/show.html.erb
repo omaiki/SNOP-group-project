@@ -1,0 +1,16 @@
+<h1><%= @recipe.name %></h1>
+<h2>Created by <%= @recipe.user.username %></h2>
+
+<p><%= @recipe.description %></p>
+
+<% if current_user %>
+  <% if current_user.id ==  @recipe.user.id%>
+    <%= link_to "Edit", edit_recipe_path(@recipe) %>
+    <%= link_to "Delete", delete_recipe_path(@recipe) %>
+  <% end %>
+  <% if !@recipe.ratings.find_by(user_id: current_user.id) %>
+    <%= form_for :vote do |f| %>
+    <%= f.submit 'Vote!' %>
+    <% end %>
+  <% end %>
+<% end %>
