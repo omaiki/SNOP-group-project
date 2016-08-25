@@ -1184,3 +1184,15 @@ Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-25 10:32:37 -07
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 10:32:37 -0700
+
+
+Started GET "/logout" for 127.0.0.1 at 2016-08-25 10:40:44 -0700
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-08-25 10:40:44 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 90ms (Views: 89.3ms | ActiveRecord: 0.0ms)
