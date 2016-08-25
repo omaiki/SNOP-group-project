@@ -1,0 +1,16 @@
+
+/* Non important stylistic details removed for brevity <3 */
+
+.form {}
+
+/* I use form--complex for forms that have more complex layouts than simple left/right label and field alignment etc */
+.form--complex { display: flex; }
+
+.form__object--fillspace {
+  /* This element will receive priority of size.
+     All other elements will be sized at the size dictated by their display type */
+  flex-grow: 1;
+
+  & + .form__object--fillspace-gap { margin-left: .5em; }
+}
+
