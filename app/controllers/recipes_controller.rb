@@ -1,45 +1,40 @@
 class RecipesController < ApplicationController
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  get '/recipes/:id/edit' do
-    @recipe = Recipe.find(params[:id])
-      erb :'recipes/edit'
+  def new
+    @recipe = Recipe.new
   end
 
-end
-
- put '/recipes/:id' do
+  def edit
     @recipe = Recipe.find(params[:id])
-    @recipe.assign_attributes(params[:rest])
-      if @recipe.save
-        redirect '/recipes'
-     else
-        erb :'recipes/edit'
-     end
- end
+  end
+
+  def create
+    @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      redirect_to @recipe
+    else
+      render 'new'
+    end
+  end
+
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+    redirect_to @recipe
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+
+    redirect_to recipes_path
+  end
+
+  private
+  def recipe_params
+    params.require(:recipe).permit(:title, :description)
+  end
