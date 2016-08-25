@@ -3,9 +3,49 @@
 
 tab tab tab tab
 
-<ul>
+<ul class="tabs">
+  <li class="active"><a href="#main">Main dishes</a></li>
+  <li><a href="#appetizer">Appetizers</a></li>
+  <li><a href="#dessert">Desserts</a></li>
+  <li><a href="#breakfast">Breakfast</a></li>
+</ul>
 
-  <li><%= recipe.name %><br>
-  <%= recipe.ratings  %> forks || <%= link_to title.username, user_path(@user) %>
+<ul class="tab-content" id="main">
+  <% if @recipes %>
+    <% @recipes.where(category_id: 2).each do |recipe| %>
+      <li><%= recipe.name %><br>
+      <%= recipe.ratings.length  %> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
 
+<ul class="tab-content" id="breakfast">
+  <% if @recipes %>
+    <% @recipes.where(category_id: 1).each do |recipe| %>
+      <li><%= recipe.name %><br>
+      <%= recipe.ratings.length  %> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<ul class="tab-content" id="appetizer">
+  <% if @recipes %>
+    <% @recipes.where(category_id: 3).each do |recipe| %>
+      <li><%= recipe.name %><br>
+      <%= recipe.ratings.length  %> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<ul class="tab-content" id="dessert">
+  <% if @recipes %>
+    <% @recipes.where(category_id: 4).each do |recipe| %>
+      <li><%= recipe.name %><br>
+      <%= recipe.ratings.length  %> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+      </li>
+    <% end %>
+  <% end %>
 </ul>
