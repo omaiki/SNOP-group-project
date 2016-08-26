@@ -1,0 +1,11 @@
+<h1>Welcome <%= @user.first_name %></h1>
+<% if @user.recipes %>
+	<ul >
+	    <% @user.recipes.each do |recipe| %>
+	      <li><%= recipe.name %><br>
+	      <span class="forks"><%= Rating.find_by(recipe_id: recipe.id).rating/ recipe.ratings.count %></span> forks <br>
+	         <%= link_to "Edit", edit_recipe_path(recipe) %>
+	      </li>
+	    <% end %>
+	</ul>
+<% end %>
