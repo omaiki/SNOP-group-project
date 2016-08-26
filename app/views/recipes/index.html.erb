@@ -1,7 +1,4 @@
 <h1>Recipe Collection</h1>
-<p>(Search bar)</p>
-
-tab tab tab tab
 
 <ul class="tabs">
   <li class="active"><a href="#main">Main dishes</a></li>
@@ -13,8 +10,8 @@ tab tab tab tab
 <ul class="tab-content" id="main">
   <% if @recipes %>
     <% @recipes.where(category_id: 2).each do |recipe| %>
-      <li><%= recipe.name %><br>
-      <span class="forks"><%= recipe.avg_rating  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+      <li><%= link_to recipe.name, recipe_path(recipe) %><br>
+      <span class="forks"><%= recipe.avg_rating %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
       </li>
     <% end %>
   <% end %>
@@ -23,7 +20,7 @@ tab tab tab tab
 <ul class="tab-content" id="breakfast">
   <% if @recipes %>
     <% @recipes.where(category_id: 1).each do |recipe| %>
-      <li><%= recipe.name %><br>
+      <li><%= link_to recipe.name, recipe_path(recipe) %><br>
       <span class="forks"><%= recipe.avg_rating  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
       </li>
     <% end %>
@@ -33,7 +30,7 @@ tab tab tab tab
 <ul class="tab-content" id="appetizer">
   <% if @recipes %>
     <% @recipes.where(category_id: 3).each do |recipe| %>
-      <li><%= recipe.name %><br>
+      <li><%= link_to recipe.name, recipe_path(recipe) %><br>
     <span class="forks"><%= recipe.avg_rating  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
       </li>
     <% end %>
@@ -43,7 +40,7 @@ tab tab tab tab
 <ul class="tab-content" id="dessert">
   <% if @recipes %>
     <% @recipes.where(category_id: 4).each do |recipe| %>
-      <li><%= recipe.name %><br>
+      <li><%= link_to recipe.name, recipe_path(recipe) %><br>
       <span class="forks"><%= recipe.avg_rating  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
       </li>
     <% end %>
