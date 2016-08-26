@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :ratings
   has_many :recipes
-  has_many :ratings, through: :recipes
+  has_many :rated_recipes, through: :ratings, source: :recipe
   belongs_to :role
 
   def admin?
