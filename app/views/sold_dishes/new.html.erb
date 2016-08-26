@@ -1,1 +1,29 @@
-<h1>Yes, Walker  was here.</h1>
+<h1>Today's sales</h1>
+
+<% if @solddish %>
+  <table border=1>
+    <tr>
+      <th>Recipe name</th>
+      <th>Quantity sold</th>
+      <th>Commission to be paid</th>
+      <th>Recipe owner</th>
+    </tr>
+    <% @solddish.each do |dish| %>
+      <tr>
+            <% comission = dish.number_sold*dish.price_sold*0.1 %>
+          <td><%= Recipe.find_by(id: dish.recipe_id).name %></td>
+          <td><%= dish.number_sold %></td>
+          <td><%= comission%></td>
+          <td><%= User.find_by(id: Recipe.find_by(id: dish.recipe_id).user_id).username %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>There are no sales today!</p>
+<% end %>
+
+<%= form_for :reset do |f| %>
+<%= f.submit 'Reset!' %>
+<% end %>
+
+
