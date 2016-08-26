@@ -4,14 +4,28 @@
 
 <p><%= @recipe.description %></p>
 
-<% if current_user %>
-  <% if current_user.id ==  @recipe.user.id%>
-    <%= link_to "Edit", edit_recipe_path(@recipe) %>
-    <%= link_to "Delete", delete_recipe_path(@recipe) %>
-  <% end %>
+<td>
+ <% if can? :update, @recipe %>
+   <%= link_to 'Edit', edit_recipe_path(@recipe) %>
+ <% end %>
+</td>
+
+<td>
+ <% if can? :destroy, @recipe %>
+   <%= link_to 'Destroy', @recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
+ <% end %>
+</td>
+
+
+
+
+
+
   <% if !@recipe.ratings.find_by(user_id: current_user.id) %>
     <%= form_for :vote do |f| %>
     <%= f.submit 'Vote!' %>
     <% end %>
   <% end %>
-<% end %>
+
+
+
