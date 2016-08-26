@@ -18,4 +18,12 @@
 			</tr>
 		<% end %>
 	</table>
+<% else %>
+	<p>There are no sales today!</p>
 <% end %>
+
+<%= form_for :reset do |f| %>
+<%= f.submit 'Reset!' %>
+<% end %>
+
+

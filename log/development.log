@@ -5576,3 +5576,805 @@ Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-25 21:17:17 -07
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 21:17:17 -0700
+
+
+Started GET "/users/" for 127.0.0.1 at 2016-08-26 07:37:56 -0700
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 27ms
+
+SyntaxError (/Users/nicolaenitescu/dbc/Jack/SNOP-group-project/app/views/users/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/nicolaenitescu/dbc/Jack/SNOP-group-project/app/views/users/index.html.erb:31: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/users/index.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/users/index.html.erb:31: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (80.5ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+Processing by UsersController#index as HTML
+  [1m[36mSoldDish Load (9.5ms)[0m  [1mSELECT "sold_dishes".* FROM "sold_dishes"[0m
+  [1m[35mRecipe Load (2.2ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (2.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 16 LIMIT 1
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 10 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 10 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 6 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 17 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 17 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 20 LIMIT 1
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 11 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 11 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 18 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 11 LIMIT 1
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 5 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 13 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 13 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 13 LIMIT 1
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 9 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 20 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 20 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 19 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 19 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 12 LIMIT 1[0m
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 3 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 17 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 17 LIMIT 1[0m
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 12 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 12 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 15 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 15 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 19 LIMIT 1
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 12 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = 12 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 7 LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (83.1ms)
+Completed 200 OK in 173ms (Views: 153.9ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 07:40:36 -0700
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-08-26 07:49:56 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `recipes' for #<User:0x007ff6236da300>):
+    1: <h1>Welcome <%= @user.first_name %></h1>
+    2: <% if @user.recipes %>
+    3: 	<ul class="tab-content" id="main">
+    4: 	    <% @user.recipes.each do |recipe| %>
+    5: 	      <li><%= recipe.name %><br>
+  app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb___4269621812482863525_70347566522180'
+
+
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (49.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-08-26 07:50:46 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 9ms
+
+ActionView::Template::Error (undefined method `recipe' for #<User:0x007ff626d69178>):
+    1: <h1>Welcome <%= @user.first_name %></h1>
+    2: <% if @user.recipe %>
+    3: 	<ul class="tab-content" id="main">
+    4: 	    <% @user.recipe.each do |recipe| %>
+    5: 	      <li><%= recipe.name %><br>
+  app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb___4269621812482863525_70347595110920'
+
+
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (36.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-08-26 07:53:36 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `recipe' for #<User:0x007ff626942568>
+Did you mean?  recipes
+               recipes=):
+    1: <h1>Welcome <%= @user.first_name %></h1>
+    2: <% if @user.recipe %>
+    3: 	<ul class="tab-content" id="main">
+    4: 	    <% @user.recipe.each do |recipe| %>
+    5: 	      <li><%= recipe.name %><br>
+  app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb___4269621812482863525_70347595110920'
+
+
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 68ms (Views: 66.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:04 -0700
+
+
+Started GET "/users/6" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 6]]
+  [1m[36mRating Load (2.4ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 10 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 14 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  Rendered users/show.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 79ms (Views: 74.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:15 -0700
+
+
+Started GET "/users/2" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 2]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 7]]
+  Rendered users/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 58ms (Views: 56.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:22 -0700
+
+
+Started GET "/users/3" for 127.0.0.1 at 2016-08-26 07:54:27 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 3]]
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 8 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 20 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  Rendered users/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 64ms (Views: 62.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:27 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:27 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:27 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:27 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 07:54:27 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:27 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:28 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:28 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:28 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:28 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 07:54:28 -0700
+  [1m[36mRecipe Load (5.4ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+
+
+Started GET "/users/6" for 127.0.0.1 at 2016-08-26 07:56:28 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 6]]
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 14 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  Rendered users/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 60ms (Views: 57.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 07:56:29 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 07:56:29 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 07:56:29 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 07:56:29 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 07:56:29 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 07:56:29 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 07:56:29 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 07:56:29 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 07:56:29 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 07:56:29 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 07:56:29 -0700
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?[0m  [["user_id", 6]]
+
+
+Started GET "/users/6" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 6]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 14 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  Rendered users/show.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 60ms (Views: 57.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 07:58:42 -0700
+
+
+Started GET "/users/6" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 6]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 14 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 70ms (Views: 67.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:51 -0700
+
+
+Started GET "/users/6" for 127.0.0.1 at 2016-08-26 07:59:53 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 6]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 14 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  Rendered users/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 62ms (Views: 60.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 07:59:54 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 07:59:54 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 07:59:54 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:54 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:54 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 07:59:54 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:54 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:54 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:54 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:54 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 07:59:54 -0700
+
+
+Started GET "/users/6" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 6]]
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 14 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  Rendered users/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 62ms (Views: 60.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:24 -0700
+
+
+Started GET "/users/6" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 6]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 14 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 55ms (Views: 53.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 08:00:45 -0700
+
+
+Started GET "/users/6" for 127.0.0.1 at 2016-08-26 10:38:50 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 6]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  Rendered users/show.html.erb within layouts/application (30.4ms)
+Completed 500 Internal Server Error in 39ms
+
+ActionView::Template::Error (undefined method `delete_recipe_path' for #<#<Class:0x007ff6268f8b20>:0x007ff623622c00>
+Did you mean?  edit_recipe_path):
+     5: 	      <li><%= recipe.name %><br>
+     6: 	      <span class="forks"><%= Rating.find_by(recipe_id: recipe.id).rating/ recipe.ratings.count %></span> forks <br>
+     7: 	         <%= link_to "Edit", edit_recipe_path(recipe) %>
+     8:    			 <%= link_to "Delete", delete_recipe_path(recipe) %>
+     9: 	      </li>
+    10: 	    <% end %>
+    11: 	</ul>
+  app/views/users/show.html.erb:8:in `block in _app_views_users_show_html_erb___4269621812482863525_70347566156620'
+  app/views/users/show.html.erb:4:in `_app_views_users_show_html_erb___4269621812482863525_70347566156620'
+
+
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (38.2ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2016-08-26 10:40:29 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 6]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  Rendered users/show.html.erb within layouts/application (27.6ms)
+Completed 500 Internal Server Error in 32ms
+
+ActionView::Template::Error (undefined method `destroy_recipe_path' for #<#<Class:0x007ff6268f8b20>:0x007ff626e39148>
+Did you mean?  edit_recipe_path):
+     5: 	      <li><%= recipe.name %><br>
+     6: 	      <span class="forks"><%= Rating.find_by(recipe_id: recipe.id).rating/ recipe.ratings.count %></span> forks <br>
+     7: 	         <%= link_to "Edit", edit_recipe_path(recipe) %>
+     8:    			 <%= link_to "Delete", destroy_recipe_path(recipe) %>
+     9: 	      </li>
+    10: 	    <% end %>
+    11: 	</ul>
+  app/views/users/show.html.erb:8:in `block in _app_views_users_show_html_erb___4269621812482863525_70347595552740'
+  app/views/users/show.html.erb:4:in `_app_views_users_show_html_erb___4269621812482863525_70347595552740'
+
+
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/nicolaenitescu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (39.3ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?  [["user_id", 6]]
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 10 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 14 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  Rendered users/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 65ms (Views: 63.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 10:43:24 -0700
+
+
+Started GET "/recipes/10/edit" for 127.0.0.1 at 2016-08-26 10:46:25 -0700
+Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 10]]
+  Rendered recipes/_form.html.erb (626.3ms)
+  Rendered recipes/edit.html.erb within layouts/application (636.3ms)
+Completed 200 OK in 693ms (Views: 688.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2016-08-26 10:46:29 -0700
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."category_id" = 2
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 10]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 13]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 16]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT "recipes".* FROM "recipes"  WHERE "recipes"."category_id" = 1[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"  WHERE "recipes"."category_id" = 3
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 17]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 20]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 18]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 19]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT "recipes".* FROM "recipes"  WHERE "recipes"."category_id" = 4[0m
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 15]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 87ms (Views: 81.5ms | ActiveRecord: 3.7ms)
