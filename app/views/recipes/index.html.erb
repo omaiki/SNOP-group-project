@@ -12,6 +12,15 @@
     <% @recipes.where(category_id: 2).each do |recipe| %>
       <li><%= link_to recipe.name, recipe_path(recipe) %><br>
       <span class="forks"><%= recipe.avg_rating %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+      <% if admin? %>
+        <%= form_for :solddish, url: solddish_path(recipe), method: :patch do |f| %>
+        <%= f.label :Price %> <%= f.text_field :Price %>
+        <%= f.submit 'Submit price' %>
+        <% end %>
+        <%= form_for :sold do |f| %>
+        <%= f.submit 'Sold!' %>
+        <% end %>
+      <% end %>
       </li>
     <% end %>
   <% end %>
@@ -22,6 +31,15 @@
     <% @recipes.where(category_id: 1).each do |recipe| %>
       <li><%= link_to recipe.name, recipe_path(recipe) %><br>
       <span class="forks"><%= recipe.avg_rating  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+      <% if admin? %>
+        <%= form_for :solddish, url: solddish_path(recipe), method: :patch do |f| %>
+        <%= f.label :Price %> <%= f.text_field :Price %>
+        <%= f.submit 'Submit price' %>
+        <% end %>
+        <%= form_for :sold do |f| %>
+        <%= f.submit 'Sold!' %>
+        <% end %>
+      <% end %>
       </li>
     <% end %>
   <% end %>
@@ -31,7 +49,16 @@
   <% if @recipes %>
     <% @recipes.where(category_id: 3).each do |recipe| %>
       <li><%= link_to recipe.name, recipe_path(recipe) %><br>
-    <span class="forks"><%= recipe.avg_rating  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+    <span class="forks"><%= recipe.avg_rating  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %><br>
+      <% if admin? %>
+        <%= form_for :solddish, url: solddish_path(recipe), method: :patch do |f| %>
+        <%= f.label :Price %> <%= f.text_field :Price %>
+        <%= f.submit 'Submit price' %>
+        <% end %>
+        <%= form_for :recipe do |f| %>
+        <%= f.submit 'Sold!' %>
+        <% end %>
+      <% end %>
       </li>
     <% end %>
   <% end %>
@@ -42,6 +69,15 @@
     <% @recipes.where(category_id: 4).each do |recipe| %>
       <li><%= link_to recipe.name, recipe_path(recipe) %><br>
       <span class="forks"><%= recipe.avg_rating  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+      <% if admin? %>
+        <%= form_for :solddish, url: solddish_path(recipe), method: :patch do |f| %>
+        <%= f.label :Price %> <%= f.text_field :Price %>
+        <%= f.submit 'Submit price' %>
+        <% end %>
+        <%= form_for :sold do |f| %>
+        <%= f.submit 'Sold!' %>
+        <% end %>
+      <% end %>
       </li>
     <% end %>
   <% end %>
