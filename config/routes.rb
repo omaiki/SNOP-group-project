@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/users' => 'users#create'
 
   get '/sold_dishes' => 'sold_dishes#new'
+  delete '/sold_dishes' => 'sold_dishes#destroy'
 end
