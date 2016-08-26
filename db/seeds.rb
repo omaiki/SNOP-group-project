@@ -53,3 +53,10 @@ end
  recipe_id:
  random_recipe.id)
 end
+
+
+20.times do
+ 
+ random_recipe = Recipe.all.sample
+ SoldDish.create!(price_sold: 10, number_sold: 3, recipe_id: random_recipe.id)
+end
