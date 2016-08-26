@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    @solddish= SoldDish.all
   end
 
   def new
