@@ -13844,3 +13844,533 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 14:59:48
 >>>>>>> 0df5df0080b90b59144e507e55314b73af78ebbc
 >>>>>>> 5df11f3246b4cede04b0e79be1e3ce7ecff03834
 >>>>>>> 1691df65984b229027f0efb1d468d882fdb57307
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20160824233252)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "last_name" varchar(255), "first_name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "role_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824233252"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Migrating to CreateRecipes (20160824234341)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "category_id" integer, "user_id" integer, "days_on_menu" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234341"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Migrating to CreateRatings (20160824234523)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rating" integer, "recipe_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234523"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to CreateSoldDishes (20160824234700)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "sold_dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price_sold" integer, "recipe_id" integer, "number_sold" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234700"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateCategories (20160824235009)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824235009"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Migrating to CreateRoles (20160826023310)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160826023310"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (1.8ms)[0m  DELETE FROM "users"
+  [1m[36mSQL (3.6ms)[0m  [1mDELETE FROM "recipes"[0m
+  [1m[35mSQL (1.5ms)[0m  DELETE FROM "ratings"
+  [1m[36mSQL (4.0ms)[0m  [1mDELETE FROM "categories"[0m
+  [1m[35mSQL (3.5ms)[0m  DELETE FROM "roles"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-08-26 22:52:10.725926"], ["name", "Admin"], ["updated_at", "2016-08-26 22:52:10.725926"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:10.731203"], ["name", "Friend"], ["updated_at", "2016-08-26 22:52:10.731203"]]
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-08-26 22:52:10.735761"], ["name", "Guest"], ["updated_at", "2016-08-26 22:52:10.735761"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:11.296719"], ["email", "rosalinda@farrelllind.org"], ["first_name", "Shanel"], ["last_name", "Ryan"], ["password_digest", "$2a$10$OAVCiZu94rysIlB.j1l/huioaJW19FXRmF7TZrflJMKLhDPxkaWXC"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:11.296719"], ["username", "deie"]]
+  [1m[35m (4.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:11.394679"], ["email", "christophe.dubuque@marquardtstracke.com"], ["first_name", "Furman"], ["last_name", "Botsford"], ["password_digest", "$2a$10$.RxAecRqc2wriBJs4CP0leGQcyks4.ofx.HBIr72W7RLY8hhCAb7e"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:11.394679"], ["username", "javon.jaskolski"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:11.484802"], ["email", "esther@wiza.net"], ["first_name", "Romaine"], ["last_name", "Senger"], ["password_digest", "$2a$10$W7n61GaJIJwFxMNivW4kN.s7.aSISILM2QCaKsfQ7AYWBBT1.Yzo."], ["role_id", 2], ["updated_at", "2016-08-26 22:52:11.484802"], ["username", "stefan_oberbrunner"]]
+  [1m[35m (3.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:11.578621"], ["email", "norma_prosacco@stark.net"], ["first_name", "Elise"], ["last_name", "Bashirian"], ["password_digest", "$2a$10$LfyizcQrIx2uIpA7IJYqW.x0YoTUHp36DoRnR.y8LUQRWTNKxCpT."], ["role_id", 2], ["updated_at", "2016-08-26 22:52:11.578621"], ["username", "amanda_schmeler"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:11.672799"], ["email", "garfield@aufderharcarroll.co"], ["first_name", "Xzavier"], ["last_name", "O'Kon"], ["password_digest", "$2a$10$pElHatCD834o.p9HcQZX1u.GSFmo5ALwrrh7RNkIfTcXKBCUJdcri"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:11.672799"], ["username", "destin_jacobs"]]
+  [1m[35m (3.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:11.761414"], ["email", "jewel@bergstrom.io"], ["first_name", "Rita"], ["last_name", "Franecki"], ["password_digest", "$2a$10$Vu0oQrJCyKBix2L4GZT5R.Um.ijNZEVri/fdoKLwPqg7Vo8h27Zd."], ["role_id", 2], ["updated_at", "2016-08-26 22:52:11.761414"], ["username", "kenton"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:11.853311"], ["email", "eliza@brekkemurray.net"], ["first_name", "Janie"], ["last_name", "Rau"], ["password_digest", "$2a$10$tmbb4LBLVynQBuVgCiJBHuzZQBIovIHz1KnsVHhX1.2kX3wauZDOu"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:11.853311"], ["username", "braeden"]]
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:11.943052"], ["email", "maritza@grimes.name"], ["first_name", "Cassandre"], ["last_name", "Leannon"], ["password_digest", "$2a$10$AEv02vOan45OI3nE1/TT9.nWVNoI4XKDiSGKEK02r4e2L.hhR7gQe"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:11.943052"], ["username", "adeline"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:12.033418"], ["email", "cleora@lindgrendickens.com"], ["first_name", "Ozzie"], ["last_name", "Schoen"], ["password_digest", "$2a$10$N5VjV41gzORX6MWpga3.3e4WlfN3FL4.VXf7KaVc2zhXkCL45A60O"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:12.033418"], ["username", "aric"]]
+  [1m[35m (3.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:12.124541"], ["email", "maeve.denesik@barrowskemmer.name"], ["first_name", "Robbie"], ["last_name", "Tillman"], ["password_digest", "$2a$10$9tzXXNiuKCJD.GnQWm3auOznLiiEKmy9HdTQrxF99QbvWvQJHlEfK"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:12.124541"], ["username", "burnice.reichert"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:12.219215"], ["email", "nelson.hagenes@schambergergutkowski.biz"], ["first_name", "Emmet"], ["last_name", "Pfeffer"], ["password_digest", "$2a$10$x6SpsIARcSk57pwX65k1ouoNYybUdyksaQ.Io/CTQ9d/8nWJ/ABeC"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:12.219215"], ["username", "orrin"]]
+  [1m[35m (3.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:12.305495"], ["email", "adela.ruel@kautzer.net"], ["first_name", "Zelma"], ["last_name", "Wiegand"], ["password_digest", "$2a$10$aW8K/hHV3kmmcjm9RbtmGO74mRNsz...RQWQv9q82EC2WHGldGkeG"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:12.305495"], ["username", "trevion.brekke"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:12.400070"], ["email", "hiram.hermann@wisozk.org"], ["first_name", "Felicity"], ["last_name", "Nikolaus"], ["password_digest", "$2a$10$DBQlSs7BDfXd1g2DARhu3e8yiCYQ6iXil1HN2r5fEHWQyFrnZfc42"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:12.400070"], ["username", "cathy"]]
+  [1m[35m (3.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:12.497780"], ["email", "peggie@reynolds.net"], ["first_name", "Susana"], ["last_name", "Armstrong"], ["password_digest", "$2a$10$DAEO3m7.WHzbusCftbpcGu.y099UQn2qZNJvdLRBe.7JH9XfI7tRe"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:12.497780"], ["username", "brett"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:12.595218"], ["email", "friedrich_gleichner@shanahandeckow.biz"], ["first_name", "Lola"], ["last_name", "Nicolas"], ["password_digest", "$2a$10$wYIItoD8hxGHZefmht6L9OgpDUKzXd7eEjVZIx7F9rwCryNFeASi6"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:12.595218"], ["username", "brooks"]]
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:12.693829"], ["email", "selina.kohler@runolfonsenger.name"], ["first_name", "Esta"], ["last_name", "Vandervort"], ["password_digest", "$2a$10$wlu04YoR1RXA.XTEpy7CHuxjc349pwz/OssD2Qvzn3CPR1KqaEO3q"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:12.693829"], ["username", "orion"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:12.784372"], ["email", "brice@ondricka.net"], ["first_name", "Dion"], ["last_name", "Olson"], ["password_digest", "$2a$10$JZe7Bl2yqGJAvpm6jmA0IupmSQtERuE3JfErNmwiFApPDfKXGGEU2"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:12.784372"], ["username", "malcolm.okeefe"]]
+  [1m[35m (3.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:12.877767"], ["email", "kacey_feest@leffler.io"], ["first_name", "Freeda"], ["last_name", "Rutherford"], ["password_digest", "$2a$10$V6BldgGHqLd6oj24jHsRluP3efU9gIDzXWg5.gt4a0Fhs4Fe/m6ha"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:12.877767"], ["username", "gene.ferry"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:12.969527"], ["email", "winona.collins@kilbackmayer.co"], ["first_name", "Kristian"], ["last_name", "Satterfield"], ["password_digest", "$2a$10$1mJv.8Mfa1S4QyVu4PoC3ulVMIOxL3tIBQua/08p3qRHsk/Q2oT9m"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:12.969527"], ["username", "melvin.goodwin"]]
+  [1m[35m (3.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.061712"], ["email", "margaret@rempel.net"], ["first_name", "Woodrow"], ["last_name", "Krajcik"], ["password_digest", "$2a$10$7QaeZr3zHM6oJlvyH8H4A.y.Jt/bQ7Os.AxCx3GJqpKTNH681.zhO"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:13.061712"], ["username", "dawson"]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.159596"], ["email", "client@dbc.com"], ["first_name", "Walker"], ["last_name", "Cereal King"], ["password_digest", "$2a$10$C7XXGlbeu2VUR000YDsY/e2/iQpc41m2ZiOVJvB6PJnBhyA8HDuaK"], ["role_id", 1], ["updated_at", "2016-08-26 22:52:13.159596"], ["username", "CerealWalker"]]
+  [1m[35m (3.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.252742"], ["email", "s@dbc.com"], ["first_name", "Shawn"], ["last_name", "Turtle"], ["password_digest", "$2a$10$jlOUKIvY7OKttj4DcHx3uOKNIO8RbeZRdIINKLt7FTx5gSOK7rYb6"], ["role_id", 2], ["updated_at", "2016-08-26 22:52:13.252742"], ["username", "tutts"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("category_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["category_name", "breakfast"], ["created_at", "2016-08-26 22:52:13.260380"], ["updated_at", "2016-08-26 22:52:13.260380"]]
+  [1m[35m (3.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("category_name", "created_at", "updated_at") VALUES (?, ?, ?)  [["category_name", "main"], ["created_at", "2016-08-26 22:52:13.265347"], ["updated_at", "2016-08-26 22:52:13.265347"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("category_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["category_name", "appetizer"], ["created_at", "2016-08-26 22:52:13.269394"], ["updated_at", "2016-08-26 22:52:13.269394"]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "categories" ("category_name", "created_at", "updated_at") VALUES (?, ?, ?)  [["category_name", "dessert"], ["created_at", "2016-08-26 22:52:13.273878"], ["updated_at", "2016-08-26 22:52:13.273878"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 1], ["created_at", "2016-08-26 22:52:13.288365"], ["days_on_menu", 2], ["description", "Reprehenderit non est sint laudantium."], ["name", "Hercules Double IPA"], ["updated_at", "2016-08-26 22:52:13.288365"], ["user_id", 2]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2016-08-26 22:52:13.296744"], ["days_on_menu", 1], ["description", "Ab architecto doloremque vero occaecati minima fugiat."], ["name", "Stone Imperial Russian Stout"], ["updated_at", "2016-08-26 22:52:13.296744"], ["user_id", 9]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 2], ["created_at", "2016-08-26 22:52:13.304740"], ["days_on_menu", 9], ["description", "Labore voluptatum dolorum iure quas aut."], ["name", "Sierra Nevada Bigfoot Barleywine Style Ale"], ["updated_at", "2016-08-26 22:52:13.304740"], ["user_id", 8]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 2], ["created_at", "2016-08-26 22:52:13.311546"], ["days_on_menu", 5], ["description", "Blanditiis et non consectetur."], ["name", "Yeti Imperial Stout"], ["updated_at", "2016-08-26 22:52:13.311546"], ["user_id", 7]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 4], ["created_at", "2016-08-26 22:52:13.318102"], ["days_on_menu", 3], ["description", "Velit qui perspiciatis quia nobis."], ["name", "Pliny The Elder"], ["updated_at", "2016-08-26 22:52:13.318102"], ["user_id", 10]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2016-08-26 22:52:13.324051"], ["days_on_menu", 10], ["description", "Et ab aspernatur ex vitae maxime est aut."], ["name", "Dreadnaught IPA"], ["updated_at", "2016-08-26 22:52:13.324051"], ["user_id", 15]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 3], ["created_at", "2016-08-26 22:52:13.331119"], ["days_on_menu", 9], ["description", "Accusantium explicabo hic et aut aliquam et."], ["name", "Old Rasputin Russian Imperial Stout"], ["updated_at", "2016-08-26 22:52:13.331119"], ["user_id", 19]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 2], ["created_at", "2016-08-26 22:52:13.336796"], ["days_on_menu", 4], ["description", "Laborum eius dolor magni."], ["name", "Founders Kentucky Breakfast "], ["updated_at", "2016-08-26 22:52:13.336796"], ["user_id", 6]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 4], ["created_at", "2016-08-26 22:52:13.342914"], ["days_on_menu", 5], ["description", "Voluptatum quis aliquid similique illum aut perspiciatis aut."], ["name", "Sierra Nevada Celebration Ale"], ["updated_at", "2016-08-26 22:52:13.342914"], ["user_id", 6]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 1], ["created_at", "2016-08-26 22:52:13.349083"], ["days_on_menu", 5], ["description", "Similique officia deleniti nihil labore nostrum totam mollitia sunt."], ["name", "Maharaj"], ["updated_at", "2016-08-26 22:52:13.349083"], ["user_id", 17]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 2], ["created_at", "2016-08-26 22:52:13.354722"], ["days_on_menu", 4], ["description", "Eveniet vel nobis ipsum."], ["name", "Sierra Nevada Celebration Ale"], ["updated_at", "2016-08-26 22:52:13.354722"], ["user_id", 14]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 1], ["created_at", "2016-08-26 22:52:13.361286"], ["days_on_menu", 5], ["description", "Commodi rerum atque eos qui minima nostrum."], ["name", "Pliny The Elder"], ["updated_at", "2016-08-26 22:52:13.361286"], ["user_id", 8]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 2], ["created_at", "2016-08-26 22:52:13.367164"], ["days_on_menu", 1], ["description", "Aliquam esse repudiandae molestiae quia cum velit."], ["name", "Orval Trappist Ale"], ["updated_at", "2016-08-26 22:52:13.367164"], ["user_id", 10]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2016-08-26 22:52:13.374100"], ["days_on_menu", 3], ["description", "Sint rem explicabo est id voluptatibus vitae."], ["name", "Shakespeare Oatmeal"], ["updated_at", "2016-08-26 22:52:13.374100"], ["user_id", 5]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 4], ["created_at", "2016-08-26 22:52:13.383625"], ["days_on_menu", 4], ["description", "Quis illum voluptatem debitis vitae rerum."], ["name", "Edmund Fitzgerald Porter"], ["updated_at", "2016-08-26 22:52:13.383625"], ["user_id", 20]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2016-08-26 22:52:13.390270"], ["days_on_menu", 2], ["description", "Nulla consequuntur quia adipisci architecto ducimus."], ["name", "Old Rasputin Russian Imperial Stout"], ["updated_at", "2016-08-26 22:52:13.390270"], ["user_id", 16]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 3], ["created_at", "2016-08-26 22:52:13.397833"], ["days_on_menu", 4], ["description", "Aut quod est quia ratione sapiente consequuntur."], ["name", "Stone Imperial Russian Stout"], ["updated_at", "2016-08-26 22:52:13.397833"], ["user_id", 3]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 1], ["created_at", "2016-08-26 22:52:13.407381"], ["days_on_menu", 4], ["description", "A molestiae dolorem soluta id autem culpa quas ab."], ["name", "Weihenstephaner Hefeweissbier"], ["updated_at", "2016-08-26 22:52:13.407381"], ["user_id", 22]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 1], ["created_at", "2016-08-26 22:52:13.416585"], ["days_on_menu", 4], ["description", "Repellat aut repellendus a omnis ex necessitatibus reiciendis eum."], ["name", "Westmalle Trappist Tripel"], ["updated_at", "2016-08-26 22:52:13.416585"], ["user_id", 12]]
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2016-08-26 22:52:13.424633"], ["days_on_menu", 4], ["description", "Numquam beatae vel sed laborum doloremque ad omnis aperiam."], ["name", "Hop Rod Rye"], ["updated_at", "2016-08-26 22:52:13.424633"], ["user_id", 10]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.436771"], ["rating", 2], ["recipe_id", 1], ["updated_at", "2016-08-26 22:52:13.436771"], ["user_id", 3]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.441397"], ["rating", 1], ["recipe_id", 18], ["updated_at", "2016-08-26 22:52:13.441397"], ["user_id", 22]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.449149"], ["rating", 5], ["recipe_id", 19], ["updated_at", "2016-08-26 22:52:13.449149"], ["user_id", 6]]
+  [1m[35m (21.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.475113"], ["rating", 2], ["recipe_id", 11], ["updated_at", "2016-08-26 22:52:13.475113"], ["user_id", 9]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.482143"], ["rating", 1], ["recipe_id", 18], ["updated_at", "2016-08-26 22:52:13.482143"], ["user_id", 20]]
+  [1m[35m (9.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.497359"], ["rating", 4], ["recipe_id", 11], ["updated_at", "2016-08-26 22:52:13.497359"], ["user_id", 7]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.504614"], ["rating", 3], ["recipe_id", 11], ["updated_at", "2016-08-26 22:52:13.504614"], ["user_id", 21]]
+  [1m[35m (4.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.514086"], ["rating", 3], ["recipe_id", 15], ["updated_at", "2016-08-26 22:52:13.514086"], ["user_id", 15]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.5ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.522755"], ["rating", 1], ["recipe_id", 10], ["updated_at", "2016-08-26 22:52:13.522755"], ["user_id", 12]]
+  [1m[35m (4.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.531649"], ["rating", 1], ["recipe_id", 14], ["updated_at", "2016-08-26 22:52:13.531649"], ["user_id", 7]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.4ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.541132"], ["rating", 1], ["recipe_id", 16], ["updated_at", "2016-08-26 22:52:13.541132"], ["user_id", 17]]
+  [1m[35m (5.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.551033"], ["rating", 4], ["recipe_id", 12], ["updated_at", "2016-08-26 22:52:13.551033"], ["user_id", 8]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.557944"], ["rating", 3], ["recipe_id", 14], ["updated_at", "2016-08-26 22:52:13.557944"], ["user_id", 22]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.564848"], ["rating", 2], ["recipe_id", 9], ["updated_at", "2016-08-26 22:52:13.564848"], ["user_id", 5]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.572119"], ["rating", 2], ["recipe_id", 16], ["updated_at", "2016-08-26 22:52:13.572119"], ["user_id", 3]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.579103"], ["rating", 4], ["recipe_id", 12], ["updated_at", "2016-08-26 22:52:13.579103"], ["user_id", 9]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.586224"], ["rating", 1], ["recipe_id", 15], ["updated_at", "2016-08-26 22:52:13.586224"], ["user_id", 13]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.594725"], ["rating", 2], ["recipe_id", 8], ["updated_at", "2016-08-26 22:52:13.594725"], ["user_id", 4]]
+  [1m[36m (6.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.606169"], ["rating", 1], ["recipe_id", 1], ["updated_at", "2016-08-26 22:52:13.606169"], ["user_id", 19]]
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.613485"], ["rating", 4], ["recipe_id", 12], ["updated_at", "2016-08-26 22:52:13.613485"], ["user_id", 5]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.620515"], ["rating", 4], ["recipe_id", 1], ["updated_at", "2016-08-26 22:52:13.620515"], ["user_id", 10]]
+  [1m[35m (3.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.632011"], ["rating", 2], ["recipe_id", 13], ["updated_at", "2016-08-26 22:52:13.632011"], ["user_id", 5]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.638878"], ["rating", 5], ["recipe_id", 9], ["updated_at", "2016-08-26 22:52:13.638878"], ["user_id", 6]]
+  [1m[35m (3.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.646806"], ["rating", 2], ["recipe_id", 13], ["updated_at", "2016-08-26 22:52:13.646806"], ["user_id", 12]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.653797"], ["rating", 3], ["recipe_id", 18], ["updated_at", "2016-08-26 22:52:13.653797"], ["user_id", 9]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.658536"], ["rating", 3], ["recipe_id", 10], ["updated_at", "2016-08-26 22:52:13.658536"], ["user_id", 17]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.664301"], ["rating", 5], ["recipe_id", 14], ["updated_at", "2016-08-26 22:52:13.664301"], ["user_id", 19]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.669081"], ["rating", 2], ["recipe_id", 14], ["updated_at", "2016-08-26 22:52:13.669081"], ["user_id", 12]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.675975"], ["rating", 5], ["recipe_id", 2], ["updated_at", "2016-08-26 22:52:13.675975"], ["user_id", 19]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.681700"], ["rating", 4], ["recipe_id", 9], ["updated_at", "2016-08-26 22:52:13.681700"], ["user_id", 17]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.686997"], ["rating", 4], ["recipe_id", 12], ["updated_at", "2016-08-26 22:52:13.686997"], ["user_id", 22]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.691731"], ["rating", 3], ["recipe_id", 1], ["updated_at", "2016-08-26 22:52:13.691731"], ["user_id", 13]]
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.698671"], ["rating", 1], ["recipe_id", 11], ["updated_at", "2016-08-26 22:52:13.698671"], ["user_id", 8]]
+  [1m[35m (6.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.708767"], ["rating", 2], ["recipe_id", 4], ["updated_at", "2016-08-26 22:52:13.708767"], ["user_id", 7]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.717750"], ["rating", 2], ["recipe_id", 3], ["updated_at", "2016-08-26 22:52:13.717750"], ["user_id", 21]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.722888"], ["rating", 4], ["recipe_id", 7], ["updated_at", "2016-08-26 22:52:13.722888"], ["user_id", 18]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.4ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.731090"], ["rating", 3], ["recipe_id", 10], ["updated_at", "2016-08-26 22:52:13.731090"], ["user_id", 6]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.735846"], ["rating", 4], ["recipe_id", 6], ["updated_at", "2016-08-26 22:52:13.735846"], ["user_id", 16]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:52:13.740551"], ["rating", 3], ["recipe_id", 14], ["updated_at", "2016-08-26 22:52:13.740551"], ["user_id", 12]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.745699"], ["rating", 3], ["recipe_id", 5], ["updated_at", "2016-08-26 22:52:13.745699"], ["user_id", 18]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.755107"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 1], ["updated_at", "2016-08-26 22:52:13.755107"]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.762199"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 1], ["updated_at", "2016-08-26 22:52:13.762199"]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.768158"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 9], ["updated_at", "2016-08-26 22:52:13.768158"]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.774823"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 19], ["updated_at", "2016-08-26 22:52:13.774823"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.781529"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 17], ["updated_at", "2016-08-26 22:52:13.781529"]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.787790"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 17], ["updated_at", "2016-08-26 22:52:13.787790"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.791525"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 4], ["updated_at", "2016-08-26 22:52:13.791525"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.6ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.798280"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 5], ["updated_at", "2016-08-26 22:52:13.798280"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.804339"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 5], ["updated_at", "2016-08-26 22:52:13.804339"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.812007"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 13], ["updated_at", "2016-08-26 22:52:13.812007"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.818024"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 6], ["updated_at", "2016-08-26 22:52:13.818024"]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.825280"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 7], ["updated_at", "2016-08-26 22:52:13.825280"]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.832051"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 13], ["updated_at", "2016-08-26 22:52:13.832051"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.838539"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 2], ["updated_at", "2016-08-26 22:52:13.838539"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.845339"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 15], ["updated_at", "2016-08-26 22:52:13.845339"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.852434"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 20], ["updated_at", "2016-08-26 22:52:13.852434"]]
+  [1m[36m (4.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.861289"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 7], ["updated_at", "2016-08-26 22:52:13.861289"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.6ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.869655"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 14], ["updated_at", "2016-08-26 22:52:13.869655"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.876399"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 4], ["updated_at", "2016-08-26 22:52:13.876399"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:52:13.883848"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 19], ["updated_at", "2016-08-26 22:52:13.883848"]]
+  [1m[36m (4.4ms)[0m  [1mcommit transaction[0m
