@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   get '/users' => 'users#create'
+
+  get '/sold_dishes' => 'sold_dishes#new'
 end

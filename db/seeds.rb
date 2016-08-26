@@ -4,14 +4,34 @@ User.delete_all
 Recipe.delete_all
 Rating.delete_all
 Category.delete_all
+Role.delete_all
+
+Role.create!(name: "Admin")
+Role.create!(name: "Friend")
+Role.create!(name: "Guest")
 
 users = 20.times.map do
  User.create!( :first_name => Faker::Name.first_name,
  :last_name => Faker::Name.last_name,
  :username => Faker::Internet.user_name,
  :email => Faker::Internet.email,
- :password => '12345678' )
+ :password => '12345678',
+ :role_id => 2 )
 end
+
+User.create!( :first_name => 'Walker',
+ :last_name => 'Cereal King',
+ :username => 'CerealWalker',
+ :email => 'client@dbc.com',
+ :password => '12345678',
+ :role_id => 1 )
+
+User.create!( :first_name => 'Shawn',
+ :last_name => 'Turtle',
+ :username => 'tutts',
+ :email => 's@dbc.com',
+ :password => '12345678',
+ :role_id => 2 )
 
 Category.create!(category_name: 'breakfast')
 Category.create!(category_name: 'main')
