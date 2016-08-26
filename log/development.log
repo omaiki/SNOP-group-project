@@ -3924,3 +3924,183 @@ Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-25 16:27:46 -07
 
 
 Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-25 16:27:46 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-25 16:31:55 -0700
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 28]]
+Completed 200 OK in 204ms (Views: 203.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-25 16:31:55 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-25 16:31:56 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-25 16:31:56 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-25 16:31:56 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-25 16:31:56 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-25 16:31:56 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-25 16:31:56 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-25 16:31:56 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 16:31:56 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-25 16:31:56 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-25 16:31:56 -0700
+
+
+Started GET "/recipes" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+Processing by RecipesController#index as HTML
+  Rendered recipes/index.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 28]]
+Completed 200 OK in 157ms (Views: 156.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:24 -0700
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecipe Load (28.9ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 28]]
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ? AND "ratings"."user_id" = 28 LIMIT 1[0m  [["recipe_id", 1]]
+  Rendered recipes/show.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 321ms (Views: 164.4ms | ActiveRecord: 30.1ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-25 16:46:25 -0700
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2016-08-25 16:50:51 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 28]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ? AND "ratings"."user_id" = 28 LIMIT 1[0m  [["recipe_id", 1]]
+  Rendered recipes/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 105ms (Views: 103.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-25 16:50:52 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-25 16:50:52 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-25 16:50:52 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-25 16:50:52 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-25 16:50:52 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-25 16:50:52 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-25 16:50:52 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-25 16:50:52 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-25 16:50:52 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-25 16:50:52 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 16:50:52 -0700
+
+
+Started GET "/logout" for 127.0.0.1 at 2016-08-25 16:51:29 -0700
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-08-25 16:51:29 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 452ms (Views: 451.5ms | ActiveRecord: 0.0ms)
