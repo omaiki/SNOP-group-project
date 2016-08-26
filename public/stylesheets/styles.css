@@ -1,16 +1,52 @@
+.container {
+ margin: 20px auto;
+ width: 80%;
+ padding: 20px 20px 20px 20px;
+ border: 3px solid black;
+ font-weight: bold;
+ color: black
+}
 
-/* Non important stylistic details removed for brevity <3 */
+.container h1 {
+ font-size: 20pt;
+}
 
-.form {}
+nav {
+ font-weight: bold;
+}
 
-/* I use form--complex for forms that have more complex layouts than simple left/right label and field alignment etc */
-.form--complex { display: flex; }
+nav ul {
+ display: inline-block;
+ text-align: right;
+}
 
-.form__object--fillspace {
-  /* This element will receive priority of size.
-     All other elements will be sized at the size dictated by their display type */
-  flex-grow: 1;
+nav li {
+ margin-right: 25px;
+ display: inline;
+}
 
-  & + .form__object--fillspace-gap { margin-left: .5em; }
+nav li a {
+ color: red;
+ text-decoration: none;
+}
+
+nav li a:hover {
+ text-decoration: underline;
+}
+
+.navbar-right{
+ float: right;
+}
+
+input {
+ margin-bottom: 10px;
+}
+
+body {
+   background-image: url("http://thecutestblogontheblock.com/wp-content/uploads/2011/11/cest-bon-free-cooking-blog-background-3c-copy.jpg (1MB)
+
+");
+   background-size: cover;
+/*    background-repeat: no-repeat;*/
 }
 
