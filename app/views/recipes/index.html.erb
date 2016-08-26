@@ -11,7 +11,7 @@
   <% if @recipes %>
     <% @recipes.where(category_id: 2).each do |recipe| %>
       <li><%= link_to recipe.name, recipe_path(recipe) %><br>
-      <span class="forks"><%= recipe.ratings.length  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+      <span class="forks"><%= recipe.avg_rating %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
       </li>
     <% end %>
   <% end %>
@@ -21,7 +21,7 @@
   <% if @recipes %>
     <% @recipes.where(category_id: 1).each do |recipe| %>
       <li><%= link_to recipe.name, recipe_path(recipe) %><br>
-      <span class="forks"><%= recipe.ratings.length  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+      <span class="forks"><%= recipe.avg_rating  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
       </li>
     <% end %>
   <% end %>
@@ -31,7 +31,7 @@
   <% if @recipes %>
     <% @recipes.where(category_id: 3).each do |recipe| %>
       <li><%= link_to recipe.name, recipe_path(recipe) %><br>
-    <span class="forks"><%= recipe.ratings.length  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+    <span class="forks"><%= recipe.avg_rating  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
       </li>
     <% end %>
   <% end %>
@@ -41,7 +41,7 @@
   <% if @recipes %>
     <% @recipes.where(category_id: 4).each do |recipe| %>
       <li><%= link_to recipe.name, recipe_path(recipe) %><br>
-      <span class="forks"><%= recipe.ratings.length  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+      <span class="forks"><%= recipe.avg_rating  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
       </li>
     <% end %>
   <% end %>

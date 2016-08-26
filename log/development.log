@@ -12425,7 +12425,1422 @@ Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 14:59:48 -0700
 Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 14:59:48 -0700
 
 
+<<<<<<< HEAD
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 10:56:05 -0700
+>>>>>>> endday
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20160824233252)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "last_name" varchar(255), "first_name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "role_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824233252"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to CreateRecipes (20160824234341)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "category_id" integer, "user_id" integer, "days_on_menu" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234341"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Migrating to CreateRatings (20160824234523)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rating" integer, "recipe_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234523"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Migrating to CreateSoldDishes (20160824234700)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "sold_dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price_sold" integer, "recipe_id" integer, "number_sold" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234700"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Migrating to CreateCategories (20160824235009)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824235009"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to CreateRoles (20160826023310)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160826023310"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (1.8ms)[0m  DELETE FROM "users"
+  [1m[36mSQL (1.7ms)[0m  [1mDELETE FROM "recipes"[0m
+  [1m[35mSQL (3.4ms)[0m  DELETE FROM "ratings"
+  [1m[36mSQL (1.6ms)[0m  [1mDELETE FROM "categories"[0m
+  [1m[35mSQL (2.0ms)[0m  DELETE FROM "roles"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-08-26 18:55:48.989465"], ["name", "Admin"], ["updated_at", "2016-08-26 18:55:48.989465"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:49.010508"], ["name", "Friend"], ["updated_at", "2016-08-26 18:55:49.010508"]]
+  [1m[35m (4.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2016-08-26 18:55:49.016065"], ["name", "Guest"], ["updated_at", "2016-08-26 18:55:49.016065"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:49.663666"], ["email", "isom@dibbert.net"], ["first_name", "Ressie"], ["last_name", "Murray"], ["password_digest", "$2a$10$2o5XVDIKMntz4LnKcILM.OdXznHKZrU8tMiFkbV8QpyX9ecfVMJSy"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:49.663666"], ["username", "lourdes_franecki"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:49.753612"], ["email", "lindsay.rice@jacobi.info"], ["first_name", "Ronny"], ["last_name", "Conroy"], ["password_digest", "$2a$10$L.9yzT.bmXXG.Wz60EVewOtHZ5ZPY0EoFYt6P4lxSKgR59HTq0nXW"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:49.753612"], ["username", "jennie_mcdermott"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:49.844294"], ["email", "amos_rohan@wymanpowlowski.biz"], ["first_name", "Samir"], ["last_name", "Rau"], ["password_digest", "$2a$10$yjJ/Xngi.bQnc6DfQt4nBuKcIDvCZ9o0tO5I.jJ6y.dBmZ9fdENxi"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:49.844294"], ["username", "lorna"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:49.939477"], ["email", "rasheed@kreiger.co"], ["first_name", "Precious"], ["last_name", "Abbott"], ["password_digest", "$2a$10$nWvMYNiPZXuvJzr4qg/m4.LKmIidfpIp8U1C3rs/SCSMfhG.5P2b."], ["role_id", 2], ["updated_at", "2016-08-26 18:55:49.939477"], ["username", "leopold.schimmel"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:50.030800"], ["email", "joanne@gorczany.org"], ["first_name", "Devan"], ["last_name", "Stracke"], ["password_digest", "$2a$10$KJnoIpw5fLhB8D7VD7RsuOr9hxO7lERRn3WSmDmP63MfyyEnhJqB."], ["role_id", 2], ["updated_at", "2016-08-26 18:55:50.030800"], ["username", "tracy_emmerich"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:50.122729"], ["email", "peggie@barton.co"], ["first_name", "Janessa"], ["last_name", "Sipes"], ["password_digest", "$2a$10$bwoDvUwmQexhsBZlMCWyn.HfCqBqVHvkSDHCvPnpW3/jhyZfBzLKi"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:50.122729"], ["username", "abigayle_mayert"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:50.215622"], ["email", "lexie@whitedoyle.info"], ["first_name", "Elias"], ["last_name", "Legros"], ["password_digest", "$2a$10$40zWxKIjwbW7ds9irWq6XOYdwIPvM9ZliQR/FgwI0SF5nnACYiuq."], ["role_id", 2], ["updated_at", "2016-08-26 18:55:50.215622"], ["username", "tremayne_runte"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:50.307672"], ["email", "chandler.block@veum.net"], ["first_name", "Lavonne"], ["last_name", "Fay"], ["password_digest", "$2a$10$Uhv8/.vs4DGBxVcBt/Khretg0FohMx4WglsUyLyRBjHx4Y129cSsS"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:50.307672"], ["username", "gregoria.durgan"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:50.401091"], ["email", "hope@mcglynnpouros.biz"], ["first_name", "Mandy"], ["last_name", "Kunze"], ["password_digest", "$2a$10$JORysfVhljILP1N/2rFKpOfWei0NJ25uuoGkrmXd8Cc4PxoCZDK6K"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:50.401091"], ["username", "bridie"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:50.489702"], ["email", "hollie.bogisich@hicklekautzer.biz"], ["first_name", "Ramiro"], ["last_name", "Feil"], ["password_digest", "$2a$10$W25IqMpcM1y6Xp93Z.1lbuDN7UCVoAC/pePS0NvKnKfvlCcyRIIaa"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:50.489702"], ["username", "sunny"]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:50.578808"], ["email", "karson_lockman@bernier.info"], ["first_name", "Marilie"], ["last_name", "Breitenberg"], ["password_digest", "$2a$10$bREdwr62fQOx65NgEV570.n4c3FUb4/yNhZYNhmpFr8ZLQZdckDXu"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:50.578808"], ["username", "emilie"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:50.667703"], ["email", "amie_reichert@ko.net"], ["first_name", "Ozella"], ["last_name", "Welch"], ["password_digest", "$2a$10$J0dPEmTpCRdmB10kETdIuuUZ6KVNvj8.eSaLr9cUM6CPU0Fw6/IhO"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:50.667703"], ["username", "malachi.frami"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:50.759636"], ["email", "jacklyn@rutherford.io"], ["first_name", "Donnie"], ["last_name", "Mertz"], ["password_digest", "$2a$10$LFDl0dnDN2iDGp6dpL5JOOvkQyua.FxpD3nJ.XXFxruwzBvDfbfte"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:50.759636"], ["username", "loma"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:50.855338"], ["email", "antonio@rodriguezvolkman.co"], ["first_name", "Daryl"], ["last_name", "Homenick"], ["password_digest", "$2a$10$DdnkiIdDeL9A.cV3gHyIB.2g2vU4tv5n.I.NgDhalH7y8YxSo3ksG"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:50.855338"], ["username", "cleta"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:50.940732"], ["email", "jamey@haag.com"], ["first_name", "Mae"], ["last_name", "Stark"], ["password_digest", "$2a$10$9sAZSa6Wg/dhsTOfaCT58eokC/8di/Tf82lWiBGyxfJ6HGQkMNCvq"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:50.940732"], ["username", "ana"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.031363"], ["email", "nina_nitzsche@monahanhills.info"], ["first_name", "Kieran"], ["last_name", "Stoltenberg"], ["password_digest", "$2a$10$g2XQE8sUMSSz4Ps1GDmJUODFLSxEg07FKf6pqwz4EHPUOONmRW3NC"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:51.031363"], ["username", "makenzie"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.122114"], ["email", "ruth@gerhold.biz"], ["first_name", "Forrest"], ["last_name", "Heidenreich"], ["password_digest", "$2a$10$McB2euS3m2oyPNaAc4Ta9.JkrzQoBBOwPmF26kIj4S7gPOVB.DBta"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:51.122114"], ["username", "emmy.paucek"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.211025"], ["email", "avery.rau@hamill.com"], ["first_name", "Dakota"], ["last_name", "Murray"], ["password_digest", "$2a$10$7TBXywcvYVpJnSH448B37uG0o4UA6r4pzWzvbSEbONg0koicS8l5W"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:51.211025"], ["username", "jeramie.weimann"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.299264"], ["email", "ima@steuber.co"], ["first_name", "Esta"], ["last_name", "Kuhic"], ["password_digest", "$2a$10$jM.Ov6rmM3dfTvNrVC8Fn.THbHtDtrEQBol1.A2q012d/cwFEAqy6"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:51.299264"], ["username", "august"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.391187"], ["email", "leta.bruen@muller.co"], ["first_name", "Alvis"], ["last_name", "Roberts"], ["password_digest", "$2a$10$o2/XjQYOk3pf9Wbux95zkeP3NcGulCe3feRHdWSx7OfL.xUyuPIVW"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:51.391187"], ["username", "annabel.will"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.479225"], ["email", "client@dbc.com"], ["first_name", "Walker"], ["last_name", "Cereal King"], ["password_digest", "$2a$10$hUq5u6YmQDtDV9.hK8Qn6eHP3uL5p4x6A6uDVGfsoLloeuCmk2OOW"], ["role_id", 1], ["updated_at", "2016-08-26 18:55:51.479225"], ["username", "CerealWalker"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "first_name", "last_name", "password_digest", "role_id", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.566665"], ["email", "s@dbc.com"], ["first_name", "Shawn"], ["last_name", "Turtle"], ["password_digest", "$2a$10$C8iunNvgDwnWU1AlCwUlreZbVk13iMmj7Dprb8l84zLLAu7pr7Jgu"], ["role_id", 2], ["updated_at", "2016-08-26 18:55:51.566665"], ["username", "tutts"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "categories" ("category_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["category_name", "breakfast"], ["created_at", "2016-08-26 18:55:51.575024"], ["updated_at", "2016-08-26 18:55:51.575024"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("category_name", "created_at", "updated_at") VALUES (?, ?, ?)  [["category_name", "main"], ["created_at", "2016-08-26 18:55:51.578592"], ["updated_at", "2016-08-26 18:55:51.578592"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("category_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["category_name", "appetizer"], ["created_at", "2016-08-26 18:55:51.581944"], ["updated_at", "2016-08-26 18:55:51.581944"]]
+  [1m[35m (29.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "categories" ("category_name", "created_at", "updated_at") VALUES (?, ?, ?)  [["category_name", "dessert"], ["created_at", "2016-08-26 18:55:51.612930"], ["updated_at", "2016-08-26 18:55:51.612930"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (7.4ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 3], ["created_at", "2016-08-26 18:55:51.625531"], ["days_on_menu", 3], ["description", "Iusto eveniet nemo nesciunt quos dolorum molestias."], ["name", "Hop Rod Rye"], ["updated_at", "2016-08-26 18:55:51.625531"], ["user_id", 15]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 2], ["created_at", "2016-08-26 18:55:51.638311"], ["days_on_menu", 2], ["description", "Consequatur soluta qui maiores cupiditate molestiae maxime ratione voluptatum."], ["name", "Arrogant Bastard Ale"], ["updated_at", "2016-08-26 18:55:51.638311"], ["user_id", 10]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 4], ["created_at", "2016-08-26 18:55:51.644867"], ["days_on_menu", 4], ["description", "Nulla nobis aut alias delectus provident."], ["name", "Old Rasputin Russian Imperial Stout"], ["updated_at", "2016-08-26 18:55:51.644867"], ["user_id", 10]]
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 1], ["created_at", "2016-08-26 18:55:51.653501"], ["days_on_menu", 7], ["description", "Omnis odit optio veritatis sapiente nam quia voluptatem expedita."], ["name", "Samuel Smith’s Imperial IPA"], ["updated_at", "2016-08-26 18:55:51.653501"], ["user_id", 20]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 2], ["created_at", "2016-08-26 18:55:51.661191"], ["days_on_menu", 6], ["description", "Quae quisquam aliquam voluptatibus molestiae."], ["name", "St. Bernardus Abt 12"], ["updated_at", "2016-08-26 18:55:51.661191"], ["user_id", 19]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 1], ["created_at", "2016-08-26 18:55:51.667745"], ["days_on_menu", 1], ["description", "Quo aut quis suscipit vel vitae."], ["name", "Péché Mortel"], ["updated_at", "2016-08-26 18:55:51.667745"], ["user_id", 2]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 1], ["created_at", "2016-08-26 18:55:51.673559"], ["days_on_menu", 4], ["description", "Maxime repellat qui molestias possimus voluptates ullam autem nulla."], ["name", "Oak Aged Yeti Imperial Stout"], ["updated_at", "2016-08-26 18:55:51.673559"], ["user_id", 15]]
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.7ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 2], ["created_at", "2016-08-26 18:55:51.680323"], ["days_on_menu", 3], ["description", "Quis amet tempore optio cupiditate et."], ["name", "Oaked Arrogant Bastard Ale"], ["updated_at", "2016-08-26 18:55:51.680323"], ["user_id", 19]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 1], ["created_at", "2016-08-26 18:55:51.690648"], ["days_on_menu", 6], ["description", "Placeat voluptatem iste vel."], ["name", "Brooklyn Black"], ["updated_at", "2016-08-26 18:55:51.690648"], ["user_id", 13]]
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 3], ["created_at", "2016-08-26 18:55:51.697084"], ["days_on_menu", 10], ["description", "Quia aliquam ducimus ipsam qui quidem illum ab quo."], ["name", "Sierra Nevada Bigfoot Barleywine Style Ale"], ["updated_at", "2016-08-26 18:55:51.697084"], ["user_id", 20]]
+  [1m[36m (4.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 1], ["created_at", "2016-08-26 18:55:51.705138"], ["days_on_menu", 6], ["description", "Non minus iste aut tempore nesciunt in quo nihil."], ["name", "Péché Mortel"], ["updated_at", "2016-08-26 18:55:51.705138"], ["user_id", 15]]
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 2], ["created_at", "2016-08-26 18:55:51.711465"], ["days_on_menu", 5], ["description", "Excepturi inventore et deserunt fuga aliquid."], ["name", "Founders Kentucky Breakfast "], ["updated_at", "2016-08-26 18:55:51.711465"], ["user_id", 1]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 3], ["created_at", "2016-08-26 18:55:51.718815"], ["days_on_menu", 7], ["description", "Voluptatibus eaque voluptatem ad neque tenetur occaecati ratione."], ["name", "La Fin Du Monde"], ["updated_at", "2016-08-26 18:55:51.718815"], ["user_id", 15]]
+  [1m[35m (3.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2016-08-26 18:55:51.725941"], ["days_on_menu", 9], ["description", "Illum nostrum voluptatem ipsam ad repudiandae voluptate accusantium."], ["name", "Shakespeare Oatmeal"], ["updated_at", "2016-08-26 18:55:51.725941"], ["user_id", 3]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 4], ["created_at", "2016-08-26 18:55:51.732494"], ["days_on_menu", 7], ["description", "Totam autem cupiditate eligendi aliquid dolorem pariatur omnis."], ["name", "Celebrator Doppelbock"], ["updated_at", "2016-08-26 18:55:51.732494"], ["user_id", 14]]
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 2], ["created_at", "2016-08-26 18:55:51.739868"], ["days_on_menu", 7], ["description", "Praesentium consequatur fugiat ipsum quia eum ut quod."], ["name", "Arrogant Bastard Ale"], ["updated_at", "2016-08-26 18:55:51.739868"], ["user_id", 6]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 3], ["created_at", "2016-08-26 18:55:51.746187"], ["days_on_menu", 3], ["description", "Enim pariatur iure et omnis vel consequuntur est."], ["name", "Weihenstephaner Hefeweissbier"], ["updated_at", "2016-08-26 18:55:51.746187"], ["user_id", 17]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 3], ["created_at", "2016-08-26 18:55:51.753323"], ["days_on_menu", 5], ["description", "Reiciendis ut ipsa illum quis."], ["name", "Chimay Grande Réserve"], ["updated_at", "2016-08-26 18:55:51.753323"], ["user_id", 15]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["category_id", 2], ["created_at", "2016-08-26 18:55:51.761692"], ["days_on_menu", 8], ["description", "Impedit perferendis voluptas veniam ipsum."], ["name", "Nugget Nectar"], ["updated_at", "2016-08-26 18:55:51.761692"], ["user_id", 19]]
+  [1m[35m (3.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "recipes" ("category_id", "created_at", "days_on_menu", "description", "name", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["category_id", 4], ["created_at", "2016-08-26 18:55:51.769602"], ["days_on_menu", 8], ["description", "Quis quo eos dolore."], ["name", "Maharaj"], ["updated_at", "2016-08-26 18:55:51.769602"], ["user_id", 9]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.780338"], ["rating", 4], ["recipe_id", 12], ["updated_at", "2016-08-26 18:55:51.780338"], ["user_id", 7]]
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.787276"], ["rating", 1], ["recipe_id", 9], ["updated_at", "2016-08-26 18:55:51.787276"], ["user_id", 21]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.4ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.795411"], ["rating", 3], ["recipe_id", 16], ["updated_at", "2016-08-26 18:55:51.795411"], ["user_id", 18]]
+  [1m[35m (3.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.804937"], ["rating", 5], ["recipe_id", 11], ["updated_at", "2016-08-26 18:55:51.804937"], ["user_id", 9]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.811814"], ["rating", 4], ["recipe_id", 7], ["updated_at", "2016-08-26 18:55:51.811814"], ["user_id", 4]]
+  [1m[35m (3.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.820209"], ["rating", 3], ["recipe_id", 6], ["updated_at", "2016-08-26 18:55:51.820209"], ["user_id", 16]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.827544"], ["rating", 5], ["recipe_id", 6], ["updated_at", "2016-08-26 18:55:51.827544"], ["user_id", 11]]
+  [1m[35m (3.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.836007"], ["rating", 5], ["recipe_id", 8], ["updated_at", "2016-08-26 18:55:51.836007"], ["user_id", 4]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.843614"], ["rating", 2], ["recipe_id", 19], ["updated_at", "2016-08-26 18:55:51.843614"], ["user_id", 5]]
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.850278"], ["rating", 1], ["recipe_id", 10], ["updated_at", "2016-08-26 18:55:51.850278"], ["user_id", 8]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.5ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.856937"], ["rating", 3], ["recipe_id", 12], ["updated_at", "2016-08-26 18:55:51.856937"], ["user_id", 6]]
+  [1m[35m (3.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.863345"], ["rating", 1], ["recipe_id", 8], ["updated_at", "2016-08-26 18:55:51.863345"], ["user_id", 19]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.4ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.869956"], ["rating", 2], ["recipe_id", 16], ["updated_at", "2016-08-26 18:55:51.869956"], ["user_id", 7]]
+  [1m[35m (3.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.876521"], ["rating", 4], ["recipe_id", 6], ["updated_at", "2016-08-26 18:55:51.876521"], ["user_id", 7]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.882870"], ["rating", 4], ["recipe_id", 19], ["updated_at", "2016-08-26 18:55:51.882870"], ["user_id", 1]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.889210"], ["rating", 4], ["recipe_id", 20], ["updated_at", "2016-08-26 18:55:51.889210"], ["user_id", 5]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.896171"], ["rating", 4], ["recipe_id", 19], ["updated_at", "2016-08-26 18:55:51.896171"], ["user_id", 12]]
+  [1m[35m (3.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.902380"], ["rating", 2], ["recipe_id", 10], ["updated_at", "2016-08-26 18:55:51.902380"], ["user_id", 19]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.909584"], ["rating", 3], ["recipe_id", 13], ["updated_at", "2016-08-26 18:55:51.909584"], ["user_id", 4]]
+  [1m[35m (3.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.917722"], ["rating", 2], ["recipe_id", 9], ["updated_at", "2016-08-26 18:55:51.917722"], ["user_id", 2]]
+  [1m[36m (4.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.925626"], ["rating", 2], ["recipe_id", 5], ["updated_at", "2016-08-26 18:55:51.925626"], ["user_id", 12]]
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.932188"], ["rating", 2], ["recipe_id", 3], ["updated_at", "2016-08-26 18:55:51.932188"], ["user_id", 20]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.942687"], ["rating", 1], ["recipe_id", 3], ["updated_at", "2016-08-26 18:55:51.942687"], ["user_id", 9]]
+  [1m[35m (3.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.949304"], ["rating", 3], ["recipe_id", 13], ["updated_at", "2016-08-26 18:55:51.949304"], ["user_id", 20]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.8ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.958621"], ["rating", 2], ["recipe_id", 18], ["updated_at", "2016-08-26 18:55:51.958621"], ["user_id", 13]]
+  [1m[35m (3.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.965955"], ["rating", 4], ["recipe_id", 14], ["updated_at", "2016-08-26 18:55:51.965955"], ["user_id", 17]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.972556"], ["rating", 5], ["recipe_id", 16], ["updated_at", "2016-08-26 18:55:51.972556"], ["user_id", 8]]
+  [1m[35m (3.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.978934"], ["rating", 5], ["recipe_id", 6], ["updated_at", "2016-08-26 18:55:51.978934"], ["user_id", 2]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:51.985687"], ["rating", 5], ["recipe_id", 11], ["updated_at", "2016-08-26 18:55:51.985687"], ["user_id", 22]]
+  [1m[35m (3.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:51.994136"], ["rating", 2], ["recipe_id", 14], ["updated_at", "2016-08-26 18:55:51.994136"], ["user_id", 18]]
+  [1m[36m (4.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:52.002160"], ["rating", 3], ["recipe_id", 1], ["updated_at", "2016-08-26 18:55:52.002160"], ["user_id", 12]]
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.008999"], ["rating", 4], ["recipe_id", 2], ["updated_at", "2016-08-26 18:55:52.008999"], ["user_id", 22]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:52.017483"], ["rating", 5], ["recipe_id", 18], ["updated_at", "2016-08-26 18:55:52.017483"], ["user_id", 17]]
+  [1m[35m (3.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.024589"], ["rating", 5], ["recipe_id", 4], ["updated_at", "2016-08-26 18:55:52.024589"], ["user_id", 6]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:52.031567"], ["rating", 4], ["recipe_id", 1], ["updated_at", "2016-08-26 18:55:52.031567"], ["user_id", 21]]
+  [1m[35m (3.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.038309"], ["rating", 5], ["recipe_id", 3], ["updated_at", "2016-08-26 18:55:52.038309"], ["user_id", 4]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:52.044642"], ["rating", 2], ["recipe_id", 9], ["updated_at", "2016-08-26 18:55:52.044642"], ["user_id", 19]]
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.051260"], ["rating", 3], ["recipe_id", 14], ["updated_at", "2016-08-26 18:55:52.051260"], ["user_id", 12]]
+  [1m[36m (4.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 18:55:52.059267"], ["rating", 3], ["recipe_id", 6], ["updated_at", "2016-08-26 18:55:52.059267"], ["user_id", 5]]
+  [1m[35m (3.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.065579"], ["rating", 4], ["recipe_id", 11], ["updated_at", "2016-08-26 18:55:52.065579"], ["user_id", 11]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.092417"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 2], ["updated_at", "2016-08-26 18:55:52.092417"]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.098536"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 17], ["updated_at", "2016-08-26 18:55:52.098536"]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.105054"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 17], ["updated_at", "2016-08-26 18:55:52.105054"]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.110929"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 4], ["updated_at", "2016-08-26 18:55:52.110929"]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.117121"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 5], ["updated_at", "2016-08-26 18:55:52.117121"]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.122495"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 18], ["updated_at", "2016-08-26 18:55:52.122495"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.128013"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 5], ["updated_at", "2016-08-26 18:55:52.128013"]]
+  [1m[36m (4.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.134646"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 4], ["updated_at", "2016-08-26 18:55:52.134646"]]
+  [1m[36m (3.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.140744"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 3], ["updated_at", "2016-08-26 18:55:52.140744"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.146647"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 11], ["updated_at", "2016-08-26 18:55:52.146647"]]
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.152227"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 2], ["updated_at", "2016-08-26 18:55:52.152227"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.158594"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 10], ["updated_at", "2016-08-26 18:55:52.158594"]]
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.165327"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 2], ["updated_at", "2016-08-26 18:55:52.165327"]]
+  [1m[36m (4.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.172942"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 19], ["updated_at", "2016-08-26 18:55:52.172942"]]
+  [1m[36m (50.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.227052"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 6], ["updated_at", "2016-08-26 18:55:52.227052"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.233584"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 2], ["updated_at", "2016-08-26 18:55:52.233584"]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.239457"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 3], ["updated_at", "2016-08-26 18:55:52.239457"]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.245997"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 11], ["updated_at", "2016-08-26 18:55:52.245997"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.252768"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 3], ["updated_at", "2016-08-26 18:55:52.252768"]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sold_dishes" ("created_at", "number_sold", "price_sold", "recipe_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 18:55:52.258158"], ["number_sold", 3], ["price_sold", 10], ["recipe_id", 3], ["updated_at", "2016-08-26 18:55:52.258158"]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-26 11:56:17 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+Completed 500 Internal Server Error in 18ms
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/controllers/welcome_controller.rb:4:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (83.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-26 11:59:58 -0700
+Processing by WelcomeController#index as HTML
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 1]]
+Completed 500 Internal Server Error in 63ms
+
+NoMethodError (undefined method `ratings' for nil:NilClass):
+  app/controllers/welcome_controller.rb:6:in `block in index'
+  app/controllers/welcome_controller.rb:4:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (76.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-26 12:00:44 -0700
+
+SyntaxError (/Users/apprentice/SNOP-group-project/app/controllers/welcome_controller.rb:5: syntax error, unexpected tIVAR, expecting '('
+...rating/ current_recipe.@ratings.count
+...                               ^):
+  app/controllers/welcome_controller.rb:5: syntax error, unexpected tIVAR, expecting '('
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (78.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-26 12:13:59 -0700
+Processing by WelcomeController#index as HTML
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `average' for #<WelcomeController:0x007ffc9948cf68>):
+  app/controllers/welcome_controller.rb:3:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (73.5ms)
+  [1m[36mRating Load (1.7ms)[0m  [1mSELECT "ratings".* FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35m (0.3ms)[0m  SELECT AVG("ratings"."rating") AS avg_id FROM "ratings"
+  [1m[36m (0.3ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35m (0.3ms)[0m  SELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id
+  [1m[36m (0.4ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35m (0.3ms)[0m  SELECT AVG(AVG(:rating) DESC NULLS LAST) AS average_avg_rating_desc_nulls_last, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id
+SQLite3::SQLException: near "DESC": syntax error: SELECT AVG(AVG(:rating) DESC NULLS LAST) AS average_avg_rating_desc_nulls_last, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id
+  [1m[36m (0.5ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35mRating Load (0.4ms)[0m  SELECT "ratings".* FROM "ratings"  GROUP BY recipe_id
+  [1m[36m (0.4ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35mRating Load (0.4ms)[0m  SELECT "ratings".* FROM "ratings"  GROUP BY recipe_id
+  [1m[36m (0.4ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35m (0.2ms)[0m  SELECT AVG("ratings"."rating") AS avg_id FROM "ratings"
+  [1m[36m (0.4ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 1 LIMIT 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 1 LIMIT 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM("ratings"."rating") AS sum_id FROM "ratings"[0m
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT  "recipes".* FROM "recipes"   ORDER BY "recipes"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT AVG(ratings) AS avg_id FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 1]]
+SQLite3::SQLException: no such column: ratings: SELECT AVG(ratings) AS avg_id FROM "ratings"  WHERE "ratings"."recipe_id" = ?
+  [1m[35mRating Load (0.4ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 1 LIMIT 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35mRating Load (0.4ms)[0m  SELECT "ratings".* FROM "ratings"  GROUP BY recipe_id
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT  "ratings".* FROM "ratings"   ORDER BY "ratings"."id" ASC LIMIT 1[0m
+  [1m[35mRating Load (0.5ms)[0m  SELECT "ratings".* FROM "ratings"  GROUP BY recipe_id
+  [1m[36m (0.4ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35m (0.4ms)[0m  SELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id
+  [1m[36m (0.4ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35m (0.4ms)[0m  SELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id
+  [1m[36m (0.4ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35m (0.4ms)[0m  SELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id
+  [1m[36m (0.4ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35m (0.4ms)[0m  SELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id
+  [1m[36m (0.3ms)[0m  [1mSELECT AVG("ratings"."rating") AS average_rating, recipe_id AS recipe_id FROM "ratings"  GROUP BY recipe_id[0m
+  [1m[35m (0.3ms)[0m  SELECT SUM("ratings"."rating") AS sum_id FROM "ratings"
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 1 LIMIT 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 1 LIMIT 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 2 LIMIT 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 3 LIMIT 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT  "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 4 LIMIT 1[0m
+  [1m[35mRating Load (0.5ms)[0m  SELECT "ratings".* FROM "ratings"   ORDER BY "ratings"."recipe_id" ASC
+  [1m[36mRating Load (0.4ms)[0m  [1mSELECT "ratings".* FROM "ratings"   ORDER BY "ratings"."recipe_id" ASC, "ratings"."desc" ASC[0m
+SQLite3::SQLException: no such column: ratings.desc: SELECT "ratings".* FROM "ratings"   ORDER BY "ratings"."recipe_id" ASC, "ratings"."desc" ASC
+  [1m[35mRating Load (0.6ms)[0m  SELECT "ratings".* FROM "ratings"   ORDER BY "ratings"."recipe_id" DESC
+  [1m[36mRating Load (0.6ms)[0m  [1mSELECT "ratings".* FROM "ratings"   ORDER BY "ratings"."recipe_id" ASC[0m
+  [1m[35mRating Load (0.5ms)[0m  SELECT "ratings".* FROM "ratings"  GROUP BY recipe_id
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT "ratings".* FROM "ratings"  GROUP BY '---
+:recipe_id: :desc
+'[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT  "ratings".* FROM "ratings"   ORDER BY "ratings"."id" ASC LIMIT 1
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT  "ratings".* FROM "ratings"   ORDER BY "ratings"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 21:49:09.529937"], ["rating", 1], ["recipe_id", 12], ["updated_at", "2016-08-26 21:49:09.529937"], ["user_id", 6]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 12[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "ratings"  WHERE "ratings"."recipe_id" = 12
+  [1m[36mRating Load (0.6ms)[0m  [1mSELECT "ratings".* FROM "ratings"   ORDER BY "ratings"."recipe_id" ASC[0m
+  [1m[35mRating Load (0.6ms)[0m  SELECT "ratings".* FROM "ratings"   ORDER BY "ratings"."recipe_id" DESC
+  [1m[36mRating Load (0.3ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = 12[0m
+  [1m[35m (0.3ms)[0m  SELECT AVG("ratings"."rating") AS avg_id FROM "ratings"  WHERE "ratings"."recipe_id" = 12
+  [1m[36m (0.3ms)[0m  [1mSELECT AVG("ratings"."rating") AS avg_id FROM "ratings"  WHERE "ratings"."recipe_id" = 12[0m
+  [1m[35m (0.3ms)[0m  SELECT AVG("ratings"."rating") AS avg_id FROM "ratings"  WHERE "ratings"."recipe_id" = 12
+  [1m[36m (0.3ms)[0m  [1mSELECT AVG("ratings"."rating") AS avg_id FROM "ratings"  WHERE "ratings"."recipe_id" = 12[0m
+  [1m[35m (0.3ms)[0m  SELECT AVG("ratings"."rating") AS avg_id FROM "ratings"  WHERE "ratings"."recipe_id" = 12
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"  WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."user_id" = ?  [["user_id", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT "recipes".* FROM "recipes" INNER JOIN "ratings" ON "recipes"."id" = "ratings"."recipe_id" WHERE "ratings"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"   ORDER BY "recipes"."rating" ASC
+SQLite3::SQLException: no such column: recipes.rating: SELECT "recipes".* FROM "recipes"   ORDER BY "recipes"."rating" ASC
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT  "recipes".* FROM "recipes"   ORDER BY "recipes"."id" DESC LIMIT 1[0m
+  [1m[35mRating Load (0.3ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1mSELECT  "recipes".* FROM "recipes"   ORDER BY "recipes"."id" DESC LIMIT 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:08:49.872790"], ["rating", 5], ["recipe_id", 20], ["updated_at", "2016-08-26 22:08:49.872790"], ["user_id", 5]]
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:08:53.541018"], ["rating", 5], ["recipe_id", 20], ["updated_at", "2016-08-26 22:08:53.541018"], ["user_id", 5]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:08:54.349513"], ["rating", 5], ["recipe_id", 20], ["updated_at", "2016-08-26 22:08:54.349513"], ["user_id", 5]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:08:55.044923"], ["rating", 5], ["recipe_id", 20], ["updated_at", "2016-08-26 22:08:55.044923"], ["user_id", 5]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["created_at", "2016-08-26 22:08:57.853502"], ["rating", 3], ["recipe_id", 20], ["updated_at", "2016-08-26 22:08:57.853502"], ["user_id", 5]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "ratings" ("created_at", "rating", "recipe_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2016-08-26 22:09:03.963507"], ["rating", 3], ["recipe_id", 20], ["updated_at", "2016-08-26 22:09:03.963507"], ["user_id", 5]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36mRecipe Load (0.4ms)[0m  [1mSELECT "recipes".* FROM "recipes"   ORDER BY "recipes"."avg_rating" ASC[0m
+SQLite3::SQLException: no such column: recipes.avg_rating: SELECT "recipes".* FROM "recipes"   ORDER BY "recipes"."avg_rating" ASC
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 17]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes"   ORDER BY "recipes"."id" DESC LIMIT 1[0m
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  [1m[36mRating Load (0.6ms)[0m  [1mSELECT "ratings".* FROM "ratings"[0m
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 17]]
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 17]]
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 17]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes"   ORDER BY "recipes"."id" DESC LIMIT 1[0m
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 17]]
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 17]]
+  [1m[35mRecipe Load (0.6ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 11]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 19]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 2]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 18]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 3]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 4]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 5]]
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 5]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 6]]
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 6]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 16]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 16]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 7]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 7]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 8]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 9]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 9]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 10]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 14]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 12]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 12]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 13]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 13]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mRating Load (0.2ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 15]]
+  [1m[35mRecipe Load (0.6ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 11]]
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 2]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 3]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 19]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 18]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 16]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 16]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 14]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 13]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 13]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 12]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 12]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 4]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 5]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 5]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 10]]
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 9]]
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 9]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 8]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 7]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 7]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 6]]
+  [1m[35mRating Load (0.7ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 6]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 4]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 4]]
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2016-08-26 15:26:46 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT  "recipes".* FROM "recipes"  WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 18ms
+
+NoMethodError (undefined method `admin?' for nil:NilClass):
+  app/models/ability.rb:5:in `initialize'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (80.4ms)
+  [1m[35mRecipe Load (0.4ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 11]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 2]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 3]]
+  [1m[36mRating Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 19]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 18]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.2ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 16]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 16]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 14]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 13]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 13]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 12]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 12]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 4]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 5]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 5]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 10]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 9]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 9]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 8]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 7]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 7]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 6]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 6]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRecipe Load (0.5ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 11]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 11]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 20]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 20]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 2]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 3]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 19]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 19]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 18]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 18]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 16]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 16]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 14]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 14]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 13]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 13]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 12]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 12]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 4]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 4]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 5]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 5]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 10]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 10]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 9]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 9]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 8]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 8]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 7]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 7]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 6]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 6]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-26 15:33:47 -0700
+
+SyntaxError (/Users/apprentice/SNOP-group-project/app/controllers/welcome_controller.rb:8: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/welcome_controller.rb:8: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (68.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-26 15:34:10 -0700
+Processing by WelcomeController#index as HTML
+  [1m[35mRecipe Load (0.5ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 11]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.2ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 2]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 3]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 19]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 18]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 16]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 16]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 14]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 13]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 13]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 12]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 12]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 4]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 5]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 5]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 10]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 9]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 9]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 8]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 7]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 7]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 6]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+Completed 500 Internal Server Error in 62ms
+
+NoMethodError (undefined method `limit' for #<Array:0x007ffc9c039ee0>):
+  app/controllers/welcome_controller.rb:3:in `index'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (80.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-26 15:34:28 -0700
+Processing by WelcomeController#index as HTML
+  [1m[36mRecipe Load (0.6ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mRating Exists (0.2ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 11]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 11]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 1]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 20]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 20]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 2]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 3]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 19]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 19]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 18]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 18]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 16]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 16]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 14]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 14]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 13]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 13]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 12]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 12]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 4]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 4]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 5]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 5]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 10]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 10]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 9]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 9]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 8]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 8]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 7]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 7]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 6]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  Rendered welcome/index.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 104ms
+
+ActionView::Template::Error (undefined method `where' for #<Array:0x007ffc9e283208>):
+    1: <h1>Welcome to Jack's restaurant</h1>
+    2: <ul>
+    3:   <% if @recipes %>
+    4:     <% @recipes.where(category_id: 2).each do |recipe| %>
+    5:       <li><%= recipe.name %><br>
+    6:       <span class="forks"><%= recipe.ratings.length  %></span> forks || <%= link_to recipe.user.username, user_path(recipe.user) %>
+    7:       </li>
+  app/views/welcome/index.html.erb:4:in `_app_views_welcome_index_html_erb__3364417549699065231_70361479774360'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+Processing by WelcomeController#index as HTML
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 11]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 2]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 3]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 19]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 18]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 16]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 16]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 14]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 13]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 13]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 12]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 12]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 4]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 5]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 5]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 10]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 9]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 9]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 8]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 7]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 7]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 6]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 20]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 15]]
+  Rendered welcome/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 262ms (Views: 229.0ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 15:38:54 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-26 15:40:09 -0700
+Processing by WelcomeController#index as HTML
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 11]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  [1m[36mRating Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 2]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 3]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 19]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 18]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 16]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 16]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 14]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 13]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 13]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 12]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 12]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 4]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 5]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 5]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 10]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 9]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 9]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 8]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 7]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 7]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 6]]
+  [1m[35mRating Load (0.4ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 20]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 15]]
+  Rendered welcome/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 108ms (Views: 72.7ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 15:40:09 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 15:40:09 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 15:40:09 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 15:40:10 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 15:40:10 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 15:40:10 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 15:40:10 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 15:40:10 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 15:40:10 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 15:40:10 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 15:40:10 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+Processing by WelcomeController#index as HTML
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 11]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 11]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 1]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 20]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 20]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 2]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 2]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 3]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 3]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 19]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 19]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 18]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 18]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 16]]
+  [1m[36mRating Load (0.1ms)[0m  [1mSELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?[0m  [["recipe_id", 16]]
+  [1m[35mRating Exists (0.1ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 14]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 14]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 13]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 13]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 12]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 12]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 4]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 4]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 5]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 5]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 10]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 10]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 9]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 9]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 8]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 8]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 7]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 7]]
+  [1m[36mRating Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 6]]
+  [1m[35mRating Load (0.1ms)[0m  SELECT "ratings".* FROM "ratings"  WHERE "ratings"."recipe_id" = ?  [["recipe_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1[0m  [["recipe_id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "ratings"  WHERE "ratings"."recipe_id" = ? LIMIT 1  [["recipe_id", 15]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 20]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 15]]
+  Rendered welcome/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 101ms (Views: 65.3ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/recipes.css?body=1" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+
+
+Started GET "/assets/recipes.js?body=1" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2016-08-26 15:41:35 -0700
+
+
+Started GET "/recipes" for 127.0.0.1 at 2016-08-26 15:41:46 -0700
+Processing by RecipesController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `admin?' for nil:NilClass):
+  app/models/ability.rb:5:in `initialize'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.2.5/lib/ruby/gems/2.2.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (86.9ms)
+=======
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-26 14:59:48 -0700
 =======
 >>>>>>> 0df5df0080b90b59144e507e55314b73af78ebbc
 >>>>>>> 5df11f3246b4cede04b0e79be1e3ce7ecff03834
+>>>>>>> 1691df65984b229027f0efb1d468d882fdb57307

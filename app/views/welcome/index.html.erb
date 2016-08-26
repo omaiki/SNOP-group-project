@@ -1,1 +1,12 @@
 <h1>Welcome to Jack's restaurant</h1>
+
+<h2> Top 5 recipes </h2>
+<ul>
+  <% if @recipes %>
+    <% 5.times do |i| %>
+      <li><%= @recipes[i].name %><br>
+      <span class="forks"><%= @recipes[i].avg_rating  %></span> forks || <%= link_to @recipes[i].user.username, user_path(@recipes[i].user) %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
