@@ -3012,3 +3012,4 @@ Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-25 11:51:01 -0700
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 11:51:01 -0700
 >>>>>>> f7ec4f89b88f590af96beef99810199b37b038e5
+  [1m[36mUser Load (6.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
