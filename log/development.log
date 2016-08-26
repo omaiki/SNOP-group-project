@@ -84,27 +84,27 @@ Migrations are pending. To resolve this issue, run:
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
 Migrating to CreateUsers (20160824233252)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "last_name" varchar(255), "first_name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "last_name" varchar(255), "first_name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824233252"]]
   [1m[35m (2.9ms)[0m  commit transaction
 Migrating to CreateRecipes (20160824234341)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.6ms)[0m  CREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "category_id" integer, "user_id" integer, "days_on_menu" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.6ms)[0m  CREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "category_id" integer, "user_id" integer, "days_on_menu" integer, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234341"]]
   [1m[35m (3.0ms)[0m  commit transaction
 Migrating to CreateRatings (20160824234523)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  CREATE TABLE "ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rating" integer, "recipe_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.5ms)[0m  CREATE TABLE "ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rating" integer, "recipe_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234523"]]
   [1m[35m (2.2ms)[0m  commit transaction
 Migrating to CreateSoldDishes (20160824234700)
   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  CREATE TABLE "sold_dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price_sold" integer, "recipe_id" integer, "number_sold" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.5ms)[0m  CREATE TABLE "sold_dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price_sold" integer, "recipe_id" integer, "number_sold" integer, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234700"]]
   [1m[35m (1.9ms)[0m  commit transaction
 Migrating to CreateCategories (20160824235009)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.5ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_name" varchar(255), "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824235009"]]
   [1m[35m (2.1ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -194,7 +194,7 @@ Completed 500 Internal Server Error in 95ms
 
 ActionView::Template::Error (undefined method `name' for #<User:0x007fb99ad11248>):
      9: <body>
-    10: 
+    10:
     11: <% if current_user %>
     12:   Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
     13: <% else %>
@@ -216,7 +216,7 @@ Completed 500 Internal Server Error in 81ms
 
 ActionView::Template::Error (undefined method `username' for #<User:0x007fb99cc42a18>):
      9: <body>
-    10: 
+    10:
     11: <% if current_user %>
     12:   Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
     13: <% else %>
@@ -238,7 +238,7 @@ Completed 500 Internal Server Error in 78ms
 
 ActionView::Template::Error (undefined method `username' for #<User:0x007fb99c95a9e0>):
      9: <body>
-    10: 
+    10:
     11: <% if current_user %>
     12:   Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
     13: <% else %>
@@ -260,7 +260,7 @@ Completed 500 Internal Server Error in 86ms
 
 ActionView::Template::Error (undefined method `username' for #<User:0x007fb99a842b68>):
      9: <body>
-    10: 
+    10:
     11: <% if current_user %>
     12:   Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
     13: <% else %>
@@ -282,7 +282,7 @@ Completed 500 Internal Server Error in 77ms
 
 ActionView::Template::Error (undefined method `username' for #<User:0x007fb99d869fd0>):
      9: <body>
-    10: 
+    10:
     11: <% if current_user %>
     12:   Signed in as <%= current_user.username %> | <%= link_to "Logout", '/logout' %>
     13: <% else %>
@@ -300,27 +300,27 @@ ActionView::Template::Error (undefined method `username' for #<User:0x007fb99d86
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
 Migrating to CreateUsers (20160824233252)
   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
-  [1m[35m (13.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "last_name" varchar(255), "first_name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (13.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "last_name" varchar(255), "first_name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (68.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824233252"]]
   [1m[35m (3.4ms)[0m  commit transaction
 Migrating to CreateRecipes (20160824234341)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (2.8ms)[0m  CREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "category_id" integer, "user_id" integer, "days_on_menu" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (2.8ms)[0m  CREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "category_id" integer, "user_id" integer, "days_on_menu" integer, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234341"]]
   [1m[35m (21.5ms)[0m  commit transaction
 Migrating to CreateRatings (20160824234523)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.6ms)[0m  CREATE TABLE "ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rating" integer, "recipe_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.6ms)[0m  CREATE TABLE "ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rating" integer, "recipe_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234523"]]
   [1m[35m (12.3ms)[0m  commit transaction
 Migrating to CreateSoldDishes (20160824234700)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (1.4ms)[0m  CREATE TABLE "sold_dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price_sold" integer, "recipe_id" integer, "number_sold" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (1.4ms)[0m  CREATE TABLE "sold_dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price_sold" integer, "recipe_id" integer, "number_sold" integer, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234700"]]
   [1m[35m (267.9ms)[0m  commit transaction
 Migrating to CreateCategories (20160824235009)
   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.6ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.6ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_name" varchar(255), "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824235009"]]
   [1m[35m (9.4ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -987,9 +987,9 @@ Completed 500 Internal Server Error in 92ms
 
 ActionView::Template::Error (undefined local variable or method `articles_path' for #<#<Class:0x007fd948dac608>:0x007fd94978bb10>):
     1: <%= link_to 'Back', articles_path %>
-    2: 
+    2:
     3: <%= render 'form' %>
-    4: 
+    4:
   app/views/recipes/new.html.erb:1:in `_app_views_recipes_new_html_erb___3484115417181746495_70285608635160'
 
 
@@ -1005,12 +1005,12 @@ Processing by RecipesController#new as HTML
 Completed 500 Internal Server Error in 47ms
 
 ActionView::Template::Error (undefined method `cuisine' for #<Recipe:0x007fd9493017c0>):
-    10: 
+    10:
     11:  <div class="form-group">
     12:  <label for="rest_cuisine" class="control-label">Cuisine: </label>
     13:  <input class="form-control" id="rest_cuisine" type="text" name="rest[cuisine]" value="<%= @recipe.cuisine %>">
     14:  </div>
-    15: 
+    15:
     16:  <div class="form-group">
   app/views/recipes/_form.html.erb:13:in `_app_views_recipes__form_html_erb___2382293048826448658_70285601115760'
   app/views/recipes/new.html.erb:3:in `_app_views_recipes_new_html_erb___3484115417181746495_70285606194580'
@@ -1144,27 +1144,27 @@ AbstractController::ActionNotFound (The action 'create' could not be found for R
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
 Migrating to CreateUsers (20160824233252)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "last_name" varchar(255), "first_name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "last_name" varchar(255), "first_name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824233252"]]
   [1m[35m (3.5ms)[0m  commit transaction
 Migrating to CreateRecipes (20160824234341)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.4ms)[0m  CREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "category_id" integer, "user_id" integer, "days_on_menu" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.4ms)[0m  CREATE TABLE "recipes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "category_id" integer, "user_id" integer, "days_on_menu" integer, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234341"]]
   [1m[35m (1.5ms)[0m  commit transaction
 Migrating to CreateRatings (20160824234523)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.4ms)[0m  CREATE TABLE "ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rating" integer, "recipe_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.4ms)[0m  CREATE TABLE "ratings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rating" integer, "recipe_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234523"]]
   [1m[35m (1.6ms)[0m  commit transaction
 Migrating to CreateSoldDishes (20160824234700)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.4ms)[0m  CREATE TABLE "sold_dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price_sold" integer, "recipe_id" integer, "number_sold" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.4ms)[0m  CREATE TABLE "sold_dishes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price_sold" integer, "recipe_id" integer, "number_sold" integer, "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824234700"]]
   [1m[35m (1.5ms)[0m  commit transaction
 Migrating to CreateCategories (20160824235009)
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
-  [1m[35m (0.5ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.5ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "category_name" varchar(255), "created_at" datetime, "updated_at" datetime)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160824235009"]]
   [1m[35m (1.4ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -1618,9 +1618,9 @@ Completed 500 Internal Server Error in 56ms
 ActionView::Template::Error (undefined method `name' for #<User:0x007fc3613212a8>):
     1: <h1><%= @recipe.name %></h1>
     2: <h2>Created by <%= @recipe.user.name %></h2>
-    3: 
+    3:
     4: <p><%= @recipe.description %></p>
-    5: 
+    5:
   app/views/recipes/show.html.erb:2:in `_app_views_recipes_show_html_erb__3807120755141767148_70238589778260'
 
 
@@ -1638,13 +1638,13 @@ Processing by RecipesController#show as HTML
 Completed 500 Internal Server Error in 9ms
 
 ActionView::Template::Error (undefined method `id' for nil:NilClass):
-    3: 
+    3:
     4: <p><%= @recipe.description %></p>
-    5: 
+    5:
     6: <% if current_user.id ==  @recipe.user.id%>
     7:   <%= link_to "Edit", edit_recipe_path(@recipe) %>
     8: <% end %>
-    9: 
+    9:
   app/views/recipes/show.html.erb:6:in `_app_views_recipes_show_html_erb__3807120755141767148_70238588835920'
 
 
@@ -1662,9 +1662,9 @@ Processing by RecipesController#show as HTML
 Completed 500 Internal Server Error in 8ms
 
 ActionView::Template::Error (undefined method `id' for nil:NilClass):
-    3: 
+    3:
     4: <p><%= @recipe.description %></p>
-    5: 
+    5:
     6: <% if current_user.id %>
     7:   <% if current_user.id ==  @recipe.user.id%>
     8:     <%= link_to "Edit", edit_recipe_path(@recipe) %>
@@ -1917,7 +1917,7 @@ Completed 500 Internal Server Error in 59ms
 
 ActionView::Template::Error (undefined method `first_name' for nil:NilClass):
      9: <body>
-    10: 
+    10:
     11: <% if current_user %>
     12:   Signed in as <%= @current_user.first_name %> | <%= link_to "Logout", '/logout' %>
     13: <% else %>
@@ -2028,7 +2028,7 @@ Completed 500 Internal Server Error in 61ms
 
 ActionView::Template::Error (undefined method `username' for nil:NilClass):
      9: <body>
-    10: 
+    10:
     11: <% if current_user %>
     12:   Signed in as <%= @current_user.username %> | <%= link_to "Logout", '/logout' %>
     13: <% else %>
@@ -3142,6 +3142,9 @@ Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-25 12:09:59 -0700
 =======
 >>>>>>> f7ec4f89b88f590af96beef99810199b37b038e5
+<<<<<<< HEAD
+  [1m[36mUser Load (6.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+=======
 >>>>>>> a315d1013b98d8b4b2f5b3109c1aea5931b71978
 
 
@@ -4104,3 +4107,4 @@ Started GET "/login" for 127.0.0.1 at 2016-08-25 16:51:29 -0700
 Processing by SessionsController#new as HTML
   Rendered sessions/new.html.erb within layouts/application (1.6ms)
 Completed 200 OK in 452ms (Views: 451.5ms | ActiveRecord: 0.0ms)
+
